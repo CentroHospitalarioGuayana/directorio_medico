@@ -19,12 +19,7 @@
 
     <link rel="stylesheet" href="./css/font-awesome.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
 
 </head>
 
@@ -33,7 +28,7 @@
     <!-- Barra de Navegacion -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- Agrupación para mejor visualización en equipos mobiles -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -46,8 +41,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Acerca de</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Acerca de</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">elemento 1</a></li>
+                            <li><a href="#">elemento 2</a></li>
+                            <li><a href="#">elemento 3</a></li>
+                            <li><a href="#">elemento 4</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="#">Servicios</a>
