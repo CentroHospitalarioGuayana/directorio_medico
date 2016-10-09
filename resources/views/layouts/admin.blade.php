@@ -213,10 +213,12 @@
                                         </div>
                                         <div class="divider"></div>
                                         <ul class="reset-ul mrg5B">
-                                            <li><a href="#">Ver mi perfil<i class="glyph-icon float-right icon-caret-right"></i></a></li>
-                                            <li><a href="#">Modificar mis datos<i class="glyph-icon float-right icon-caret-right"></i></a></li>
+                                            <li><a href="#">Ver mi perfil</a></li>
+                                            <li><a href="#">Modificar mis datos</a></li>
                                         </ul>
-                                        <div class="button-pane button-pane-alt pad5L pad5R text-center"><a href="#" class="btn btn-flat display-block font-normal btn-danger"><i class="glyph-icon icon-power-off"></i> Logout</a></div>
+                                        <div class="button-pane button-pane-alt pad5L pad5R text-center">
+                                          <a href="#" class="btn btn-flat display-block font-normal btn-danger"><i class="glyph-icon icon-power-off"></i> Salir</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
