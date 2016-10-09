@@ -10,8 +10,12 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+Route::get('/', function () {
+    return Redirect::to('/medicos');
+});
 
-Route::get('/', 'FrontController@index');
+Route::resource('medicos','medicos_controller');
+//Route::get('/', 'FrontController@index');
 Route::get('cardiologos', 'FrontController@cardiologos');
 Route::get('pediatras', 'FrontController@pediatras');
 Route::get('ginecologos', 'FrontController@ginecologos');
