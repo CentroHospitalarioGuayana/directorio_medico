@@ -172,7 +172,8 @@
             <div id="page-content-wrapper">
                 <div id="page-content">
                     <div id="page-header">
-                        <div id="header-nav-left"><a class="header-btn" id="logout-btn" href="lockscreen-3.html" title="Lockscreen page example"><i class="glyph-icon icon-linecons-lock"></i></a>
+                        <div id="header-nav-left">
+                          <a class="header-btn" id="logout-btn"></a>
                             <div class="user-account-btn dropdown">
                                 <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown"><img width="28" src="../assets/image-resources/gravatar.jpg" alt="Profile image"> <span>Usuario</span> <i class="glyph-icon icon-angle-down"></i></a>
                                 <div class="dropdown-menu float-right">
@@ -206,7 +207,7 @@
                     {!!Html::script('assets/widgets/datatable/datatable-tabletools.js')!!}
                     {!!Html::script('assets/widgets/datatable/datatable-reorder.js')!!}
 
-                    
+
 <!-- Inicio del contenido -->
                     @yield('contenido')
 

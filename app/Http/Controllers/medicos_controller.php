@@ -27,7 +27,7 @@ class medicos_controller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.medicos.medicos');
     }
 
     /**

@@ -48,7 +48,7 @@ $(document).ready(function() {
             Medicos
             <div class="pull-right">
                 <div class="pull-right">
-                    <button class="btn btn-alt btn-sm btn-hover btn-info"><span>Nuevo</span> <i class="glyph-icon icon-plus"></i></button>
+                    <a class="btn btn-alt btn-sm btn-hover btn-info" href="{!!asset('/medicos/create')!!}"><span>Nuevo</span> <i class="glyph-icon icon-plus"></i></a>
                 </div>
             </div>
           </h3>
