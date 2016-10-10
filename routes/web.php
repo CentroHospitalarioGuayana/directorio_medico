@@ -11,10 +11,11 @@
 |
 */
 Route::get('/', function () {
-    return Redirect::to('/medicos');
+    return Redirect::to('/especialidades');
 });
 
 Route::resource('medicos','medicos_controller');
+Route::resource('especialidades','especialidades_controller');
 //Route::get('/', 'FrontController@index');
 Route::get('cardiologos', 'FrontController@cardiologos');
 Route::get('pediatras', 'FrontController@pediatras');

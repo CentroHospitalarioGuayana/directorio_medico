@@ -43,17 +43,17 @@ return [
 
     'disks' => [
 
-        'img_especialidades' => [
+        'especialidades' => [
            'driver' => 'local',
            'root' => public_path('img/especialidades'),
         ],
 
-        'img_usuarios' => [
+        'usuarios' => [
            'driver' => 'local',
            'root' => public_path('img/usuarios'),
         ],
 
-        'img_medicos' => [
+        'medicos' => [
            'driver' => 'local',
            'root' => public_path('img/medicos'),
         ],

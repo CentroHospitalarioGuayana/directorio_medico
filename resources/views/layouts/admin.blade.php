@@ -145,36 +145,15 @@
                 <div class="scroll-sidebar">
                     <ul id="sidebar-menu">
                         <li class="header"><span>Principal</span></li>
-                        <li><a href="index.html" title="Admin Dashboard"><i class="glyph-icon icon-dashboard"></i> <span>Dashboard</span></a></li>
+                        <li><a href="index.html" title="Dashboard"><i class="glyph-icon icon-dashboard"></i> <span>Dashboard</span></a></li>
                         <li><a href="index.html" title="Admin Dashboard"><i class="glyph-icon icon-file-o"></i> <span>Layout</span></a></li>
 
                         <li class="header"><span>Medicos</span></li>
-                        <li><a href="javascript:void(0);" title="Elements"><i class="glyph-icon icon-user-md"></i> <span>Medicos</span></a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li><a href="buttons.html" title="Buttons"><span>Medicos</span></a></li>
-                                    <li><a href="labels-badges.html" title="Labels &amp; Badges"><span>Labels &amp; Badges</span></a></li>
-                                    <li><a href="content-boxes.html" title="Content boxes"><span>Content boxes</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="javascript:void(0);" title="Dashboard boxes"><i class="glyph-icon icon-clock-o"></i> <span>Horarios</span></a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li><a href="chart-boxes.html" title="Chart boxes"><span>Horarios</span></a></li>
-                                    <li><a href="tile-boxes.html" title="Tile boxes"><span>Tile boxes</span></a></li>
-                                    <li><a href="social-boxes.html" title="Social boxes"><span>Social boxes</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="javascript:void(0);" title="Widgets"><i class="glyph-icon icon-stethoscope"></i> <span>Especialidades</span></a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li><a href="tabs.html" title="Responsive tabs"><span>Especialidades</span></a></li>
-                                    <li><a href="collapsable.html" title="Collapsables"><span>Collapsable accordions</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
+                        <li><a href="{{asset('/medicos')}}" title="Medicos"><i class="glyph-icon icon-user-md"></i> <span>Medicos</span></a>  </li>
+
+                        <li><a href="{{asset('/horarios')}}" title="Horarios"><i class="glyph-icon icon-clock-o"></i> <span>Horarios</span></a></li>
+
+                        <li><a href="{{asset('/especialidades')}}" title="Especialidades"><i class="glyph-icon icon-stethoscope"></i> <span>Especialidades</span></a></li>
 
                         <li class="header"><span>Usuarios</span></li>
                         <li><a href="javascript:void(0);" title="Pages"><i class="glyph-icon icon-users"></i> <span>Usuarios</span> </a>
@@ -182,15 +161,6 @@
                                 <ul>
                                     <li><a href="index-alt.html" title="Alternate dashboard"><span>Usuarios</span></a></li>
                                     <li><a href="view-profile.html" title="View profile"><span>Perfiles</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="javascript:void(0);" title="Other Pages"><i class="glyph-icon icon-linecons-cup"></i> <span>Perfil</span></a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li><a href="login-1.html" target="_blank" title="Login page 1"><span>Login page 1</span></a></li>
-                                    <li><a href="login-2.html" target="_blank" title="Login page 2"><span>Login page 2</span></a></li>
-                                    <li><a href="login-3.html" target="_blank" title="Login page 3"><span>Login page 3</span></a></li>
                                 </ul>
                             </div>
                         </li>
@@ -234,49 +204,9 @@
                     {!!Html::script('assets/widgets/skycons/skycons.js')!!}
                     {!!Html::script('assets/widgets/datatable/datatable-bootstrap.js')!!}
                     {!!Html::script('assets/widgets/datatable/datatable-tabletools.js')!!}
+                    {!!Html::script('assets/widgets/datatable/datatable-reorder.js')!!}
 
-                    <script type="text/javascript">
-                        /* Datatables basic */
-
-                        $(document).ready(function() {
-                            $('#datatable-example').dataTable();
-                        });
-
-                        /* Datatables hide columns */
-
-                        $(document).ready(function() {
-                            var table = $('#datatable-hide-columns').DataTable({
-                                "scrollY": "300px",
-                                "paging": false
-                            });
-
-                            $('#datatable-hide-columns_filter').hide();
-
-                            $('a.toggle-vis').on('click', function(e) {
-                                e.preventDefault();
-
-                                // Get the column API object
-                                var column = table.column($(this).attr('data-column'));
-
-                                // Toggle the visibility
-                                column.visible(!column.visible());
-                            });
-                        });
-
-                        /* Datatable row highlight */
-
-                        $(document).ready(function() {
-                            var table = $('#datatable-row-highlight').DataTable();
-
-                            $('#datatable-row-highlight tbody').on('click', 'tr', function() {
-                                $(this).toggleClass('tr-selected');
-                            });
-                        });
-
-                        $(document).ready(function() {
-                            $('.dataTables_filter input').attr("placeholder", "Buscar...");
-                        });
-                    </script>
+                    
 <!-- Inicio del contenido -->
                     @yield('contenido')
 

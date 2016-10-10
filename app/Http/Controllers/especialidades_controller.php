@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
+use directorio_medico\Http\Requests\especialidades_request;
+use directorio_medico\modelo_especialidades;
+use Session;
+use Redirect;
+
 
 class especialidades_controller extends Controller
 {
@@ -16,7 +21,8 @@ class especialidades_controller extends Controller
      */
     public function index()
     {
-        //
+        $especialidades = modelo_especialidades::All();
+        return view('admin.especialidades.especialidades',compact('especialidades'));
     }
 
     /**
@@ -26,7 +32,7 @@ class especialidades_controller extends Controller
      */
     public function create()
     {
-        //
+      return view ('admin.especialidades.create');
     }
 
     /**
@@ -35,9 +41,18 @@ class especialidades_controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(especialidades_request $request)
     {
-        //
+      modelo_especialidades::create([
+           'id_especialidad' =>$request[''],
+           'descripcion_especialidad' =>$request['descripcion_especialidad'],
+           'imagen' =>$request['imagen']
+           ]);
+
+           //$request->file('uploaded_file')->store($request['img_especialidad'], 'especialidades');
+
+           Session::flash('message','La Especialidad Ha Sido Creada Exitosamente');
+           return Redirect::to('/especialidades');
     }
 
     /**
@@ -57,9 +72,10 @@ class especialidades_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_especialidad)
     {
-        //
+        $especialidades = modelo_especialidades::find($id_especialidad);
+        return view('admin.especialidades.edit',['especialidades'=>$especialidades]);
     }
 
     /**
@@ -69,9 +85,16 @@ class especialidades_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id_especialidad, especialidades_request $request)
     {
-        //
+
+
+          $especialidades = modelo_especialidades::find($id_especialidad);
+          $especialidades->fill($request->all());
+          $especialidades->save();
+
+         Session::flash('message','La Especialida Ha Sido Eliminada Exitosamente');
+         return Redirect::to('/especialidades');
     }
 
     /**
@@ -80,8 +103,14 @@ class especialidades_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_especialidad)
     {
-        //
+        $especialidades = modelo_especialidades::find($id_especialidad);
+        \Storage::delete($especialidades->imagen)
+        ;
+        modelo_especialidades::destroy($id_especialidad);
+
+        Session::flash('message','La Especialidad Ha Sido Eliminada Exitosamente');
+        return Redirect::to('/especialidades');
     }
 }

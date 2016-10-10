@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
-
+use directorio_medico\modelo_medicos;
 class medicos_controller extends Controller
 {
     /**
@@ -16,7 +16,8 @@ class medicos_controller extends Controller
      */
     public function index()
     {
-        return view('admin.medicos.medicos');
+        $medicos = modelo_medicos::All();
+        return view('admin.medicos.medicos',compact('medicos'));
     }
 
     /**

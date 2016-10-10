@@ -4,6 +4,39 @@
 
 @section('contenido')
 
+<script type="text/javascript">
+/* Datatables export */
+
+$(document).ready(function() {
+    var table = $('#datatable-tabletools').DataTable();
+    var tt = new $.fn.dataTable.TableTools(table);
+
+    $(tt.fnContainer()).insertBefore('#datatable-tabletools_wrapper div.dataTables_filter');
+
+    $('.DTTT_container').addClass('btn-group');
+    $('.DTTT_container a').addClass('btn btn-default btn-md');
+
+    $('.dataTables_filter input').attr("placeholder", "Buscar...");
+
+});
+
+/* Datatables reorder */
+
+$(document).ready(function() {
+    $('#datatable-reorder').DataTable({
+        dom: 'Rlfrtip'
+    });
+
+    $('#datatable-reorder_length').hide();
+    $('#datatable-reorder_filter').hide();
+
+});
+
+$(document).ready(function() {
+    $('.dataTables_filter input').attr("placeholder", "Buscar...");
+});
+</script>
+
 <div id="page-title">
     <h2> <i class="glyph-icon icon-user-md"></i> Medicos</h2>
     <p>Directorio Medico.</p>
@@ -11,7 +44,6 @@
 
 <div class="panel">
     <div class="panel-body">
-
       <h3 class="title-hero">
             Medicos
             <div class="pull-right">
@@ -20,103 +52,52 @@
                 </div>
             </div>
           </h3>
+
+
         <div class="example-box-wrapper">
-            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="datatable-example">
+
+            <table id="datatable-tabletools" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
                 <thead>
                     <tr>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>Acciones</th>
+                        <th>Id</th>
+                        <th>Descripcion</th>
+                        <th>Imagen</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
+                <!--
+                <tfoot>
+                    <tr>
+                      <th>Id</th>
+                      <th>Descripcion</th>
+                      <th>Imagen</th>
+                    </tr>
+                </tfoot>
+              -->
                 <tbody>
-                    <tr class="odd gradeX">
-                        <td>Internet Explorer 4.0</td>
-                        <td>Win 95+</td>
-                        <td class="center">4</td>
+                  @foreach($medicos as $medico)
+                    <tr>
+                        <td>{{$medico->id_medico}}</td>
+                        <td>{{$medico->nombres_m}} {{$medico->apellidos_m}}</td>
+                        <td>{{$medico->direccion}}</td>
                         <td>
-                          <button class="btn btn-alt btn-hover btn-success"><span>Editar</span> <i class="glyph-icon icon-pencil"></i></button>
-                          <button class="btn btn-alt btn-hover btn-danger"><span>Eliminar</span> <i class="glyph-icon icon-trash"></i></button>
+                          <button class="btn btn-alt btn-sm btn-hover btn-success"><span>Editar</span> <i class="glyph-icon icon-pencil"></i></button>
+                          <button class="btn btn-alt btn-sm btn-hover btn-danger"><span>Eliminar</span> <i class="glyph-icon icon-trash"></i></button>
                         </td>
+
                     </tr>
-                    <tr class="even gradeC">
-                        <td>Internet Explorer 5.0</td>
-                        <td>Win 95+</td>
-                        <td class="center">5</td>
-                        <td>
-                          <button class="btn btn-sm btn-success"><i class="glyph-icon icon-pencil"></i> <small>Editar</small> </button>
-                          <button class="btn btn-sm btn-danger"><i class="glyph-icon icon-trash"></i> <small>Eliminar</small> </button>  
-                        </td>
-                    </tr>
-                    <tr class="odd gradeA">
-                        <td>Internet Explorer 5.5</td>
-                        <td>Win 95+</td>
-                        <td class="center">5.5</td>
-                        <td></td>
-                    </tr>
-                    <tr class="even gradeA">
-                        <td>Internet Explorer 6</td>
-                        <td>Win 98+</td>
-                        <td class="center">6</td>
-                        <td></td>
-                    </tr>
-                    <tr class="odd gradeA">
-                        <td>Internet Explorer 7</td>
-                        <td>Win XP SP2+</td>
-                        <td class="center">7</td>
-                        <td></td>
-                    </tr>
-                    <tr class="even gradeA">
-                        <td>AOL browser (AOL desktop)</td>
-                        <td>Win XP</td>
-                        <td class="center">6</td>
-                        <td></td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>Firefox 1.0</td>
-                        <td>Win 98+ / OSX.2+</td>
-                        <td class="center">1.7</td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>Firefox 1.5</td>
-                        <td>Win 98+ / OSX.2+</td>
-                        <td class="center">1.8</td>
-                        <td></td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>Firefox 2.0</td>
-                        <td>Win 98+ / OSX.2+</td>
-                        <td class="center">1.8</td>
-                        <td></td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>Firefox 3.0</td>
-                        <td>Win 2k+ / OSX.3+</td>
-                        <td class="center">1.9</td>
-                        <td></td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>Camino 1.0</td>
-                        <td>OSX.2+</td>
-                        <td class="center">1.8</td>
-                        <td></td>
-                    </tr>
-                    <tr class="gradeA">
-                        <td>Camino 1.5</td>
-                        <td>OSX.3+</td>
-                        <td class="center">1.8</td>
-                        <td></td>
-                    </tr>
-                    <tr class="gradeU">
-                        <td>All others</td>
-                        <td>-</td>
-                        <td class="center">-</td>
-                        <td></td>
-                    </tr>
+                    @endforeach
+
+
                 </tbody>
             </table>
+
+
         </div>
+
+
     </div>
+
 </div>
 @endsection
