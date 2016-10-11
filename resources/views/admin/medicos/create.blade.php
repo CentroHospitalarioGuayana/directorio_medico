@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('titulo','Nueva Especialidad')
+@section('titulo','Nuevo Medico')
 
 @section('contenido')
 

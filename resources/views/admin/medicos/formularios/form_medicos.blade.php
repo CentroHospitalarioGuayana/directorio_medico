@@ -9,7 +9,7 @@
 <div class="form-group">
     {!!Form::label('ci_medico', 'Documento de identidad', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::text('ci_medico', null , ['class'=>'form-control', 'placeholder'=>'Documento de identidad'])!!}
+      {!!Form::text('ci_medico', null , ['class'=>'form-control','placeholder'=>'Documento de identidad'])!!}
     </div>
 </div>
 
@@ -24,6 +24,20 @@
     {!!Form::label('apellidos_m', 'Apellidos', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
       {!!Form::text('apellidos_m', null , ['class'=>'form-control', 'placeholder'=>'Apellidos del medico'])!!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!!Form::label('sexo', 'Sexo', ['class' => 'col-sm-3 control-label'])!!}
+    <div class="col-sm-6">
+      {!!Form::text('sexo', null , ['class'=>'form-control', 'placeholder'=>'Sexo'])!!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!!Form::label('direccion', 'Consultorio', ['class' => 'col-sm-3 control-label'])!!}
+    <div class="col-sm-6">
+      {!!Form::text('direccion', null , ['class'=>'form-control', 'placeholder'=>'Sexo'])!!}
     </div>
 </div>
 
@@ -49,22 +63,16 @@
 </div>
 
 <div class="form-group">
-    {!!Form::label('tlf_m', 'Telefono movil', ['class' => 'col-sm-3 control-label'])!!}
-    <div class="col-sm-6">
-      {!!Form::text('tlf_m', null , ['class'=>'form-control', 'placeholder'=>'Nombre de la especialidad'])!!}
-    </div>
-</div>
-<div class="form-group">
         {!!Form::label('fecha_nac', 'Fecha de nacimiento', ['class' => 'col-sm-3 control-label'])!!}
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <div class="input-prepend input-group"><span class="add-on input-group-addon"><i class="glyph-icon icon-calendar"></i></span>
-            {!!Form::text('fecha_nac', null , ['class'=>'bootstrap-datepicker form-control', 'placeholder'=>'Nombre de la especialidad', 'data-date-format'=>'yy/mm/dd'])!!}
+            {!!Form::text('fecha_nac', null , ['class'=>'bootstrap-datepicker form-control', 'placeholder'=>'Fecha de nacimiento', 'data-date-format'=>'yy/mm/dd'])!!}
             <!-- <input type="text" class="bootstrap-datepicker form-control" value="02/16/12" data-date-format="mm/dd/yy"> -->
         </div>
     </div>
 </div>
 <div class="form-group">
-    {!!Form::label('foto', 'foto', ['class' => 'col-sm-3 control-label'])!!}
+    {!!Form::label('foto', 'Foto', ['class' => 'col-sm-3 control-label'])!!}
           <div class="col-sm-6">
               <div class="fileinput fileinput-new" data-provides="fileinput">
                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px"></div>
@@ -80,14 +88,14 @@
 <div class="form-group">
     {!!Form::label('pacientes_particular', 'N° de pacientes particulares', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::text('pacientes_particular', null , ['class'=>'form-control', 'placeholder'=>'Correo electronico'])!!}
+      {!!Form::number('pacientes_particular', null , ['class'=>'form-control', 'placeholder'=>'Pacientes particulares'])!!}
     </div>
 </div>
 
 <div class="form-group">
     {!!Form::label('pacientes_seguro', 'N° de pacientes por seguro', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::text('pacientes_seguro', null , ['class'=>'form-control', 'placeholder'=>'Nombre de la especialidad'])!!}
+      {!!Form::number('pacientes_seguro', null , ['class'=>'form-control', 'placeholder'=>'Pacientes por seguro'])!!}
     </div>
 </div>
 

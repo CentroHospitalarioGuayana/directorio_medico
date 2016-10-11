@@ -15,14 +15,22 @@ class modelo_medicos extends Model
                   'apellidos_m',
                   'fecha_nac',
                   'edad',
-                  'img_medico',
+                  'foto',
                   'tlf_f',
                   'tlf_m',
                   'correo_e',
                   'direccion',
                   'sexo',
                   'pacientes_particular',
-                  'paciente_seguro'];
+                  'pacientes_seguro'];
 
     public $timestamps = false;
+
+    public function setfotoAttribute($foto){
+         if(!empty($foto)){
+             $name = $foto->getClientOriginalName();
+             $this->attributes['foto'] = $name;
+             \Storage::disk('medicos')->put($name, \File::get($foto));
+           }
+      }
 }

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
 use directorio_medico\modelo_medicos;
+use directorio_medico\Http\Requests\medicos_request;
+use Session;
+use Redirect;
+
 class medicos_controller extends Controller
 {
     /**
@@ -27,7 +31,7 @@ class medicos_controller extends Controller
      */
     public function create()
     {
-        return view('admin.medicos.medicos');
+        return view('admin.medicos.create');
     }
 
     /**
@@ -36,9 +40,27 @@ class medicos_controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(medicos_request $request)
     {
-        //
+        modelo_medicos::create([
+                  'id_medico' => $request[''],
+                  'ci_medico' => $request['ci_medico'],
+                  'nombres_m' => $request['nombres_m'],
+                  'apellidos_m' => $request['apellidos_m'],
+                  'tlf_f' => $request['tlf_f'],
+                  'tlf_m' => $request['tlf_m'],
+                  'fecha_nac' => $request['fecha_nac'],
+                  'foto' => $request['foto'],
+                  'correo_e' => $request['correo_e'],
+                  'direccion' => $request['direccion'],
+                  'sexo' => $request['sexo'],
+                  'pacientes_particular' => $request['pacientes_particular'],
+                  'pacientes_seguro' => $request['pacientes_seguro']
+                  ]);
+
+                  Session::flash('message','El Medico Se Ha Creado Exitosamente');
+                  return Redirect::to('/medicos');
+
     }
 
     /**
@@ -58,9 +80,12 @@ class medicos_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_medico)
     {
-        //
+        $medicos = modelo_medicos::find($id_medico);
+        return view('admin.medicos.edit',['medicos'=>$medicos]);
+        Session::flash('message','El Medico Ha Sido Actualizado Exitosamente');
+        return Redirect::to('/medicos');
     }
 
     /**
@@ -70,9 +95,14 @@ class medicos_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id_medico, medicos_request $request)
     {
-        //
+        $medicos = modelo_medicos::find($id_medico);
+        $medicos->fil($request->all());
+        $medicos->save();
+
+        Session::flash('El Medico Se Ha Actualizado Exitosamente');
+        return Redirect::to('/medicos');
     }
 
     /**
@@ -81,8 +111,11 @@ class medicos_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_medico)
     {
-        //
+        modelo_medicos::destroy($id_medico);
+
+        Session::flash('message','El Medico Ha Sido Elminado Exitosamente');
+        return Redirect::to('/medicos');
     }
 }

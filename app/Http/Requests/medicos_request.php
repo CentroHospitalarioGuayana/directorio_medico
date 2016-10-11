@@ -13,7 +13,7 @@ class medicos_request extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,18 @@ class medicos_request extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        return ['ci_medico' => 'size:6',
+                'nombres_m'=> 'required',
+                'apellidos_m' =>'required',
+                'fecha_nac',
+                'edad',
+                'foto',
+                'tlf_f' => 'required',
+                'tlf_m' => 'required',
+                'correo_e' =>'email',
+                'direccion',
+                'sexo',
+                'pacientes_particular',
+                'pacientes_seguro' ];
     }
 }
