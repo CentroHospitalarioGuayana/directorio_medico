@@ -4,8 +4,6 @@
 
 @section('contenido')
 
-{!!Html::script('assets/widgets/modal/modal.js')!!}
-
 <script type="text/javascript">
 /* Datatables export */
 
@@ -65,7 +63,6 @@ $(document).ready(function() {
             </div>
           </h3>
         <div class="example-box-wrapper">
-      @if($especialidades->count())
             <table id="datatable-tabletools" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -127,10 +124,6 @@ $(document).ready(function() {
 
                 </tbody>
             </table>
-            @else
-              <strong>No existen especialidades</strong>
-            @endif
-
         </div>
     </div>
 </div>

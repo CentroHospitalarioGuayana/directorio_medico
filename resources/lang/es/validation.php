@@ -135,5 +135,8 @@ return [
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
+        'nombres_m'             => 'nombres',
+        'apellidos_m'           => 'apellidos',
+        'tlf_f'                 => 'extension',
     ],
 ];

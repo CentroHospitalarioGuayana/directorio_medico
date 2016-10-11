@@ -53,6 +53,7 @@ class medicos_controller extends Controller
                   'foto' => $request['foto'],
                   'correo_e' => $request['correo_e'],
                   'direccion' => $request['direccion'],
+                  'consultorio' => $request['consultorio'],
                   'sexo' => $request['sexo'],
                   'pacientes_particular' => $request['pacientes_particular'],
                   'pacientes_seguro' => $request['pacientes_seguro']
@@ -98,10 +99,10 @@ class medicos_controller extends Controller
     public function update($id_medico, medicos_request $request)
     {
         $medicos = modelo_medicos::find($id_medico);
-        $medicos->fil($request->all());
+        $medicos->fill($request->all());
         $medicos->save();
 
-        Session::flash('El Medico Se Ha Actualizado Exitosamente');
+        Session::flash('message','El Medico Se Ha Actualizado Exitosamente');
         return Redirect::to('/medicos');
     }
 
@@ -113,6 +114,9 @@ class medicos_controller extends Controller
      */
     public function destroy($id_medico)
     {
+        $medicos = modelo_medicos::find($id_medico);
+        \Storage::disk('medicos')->delete($medicos->foto);
+
         modelo_medicos::destroy($id_medico);
 
         Session::flash('message','El Medico Ha Sido Elminado Exitosamente');

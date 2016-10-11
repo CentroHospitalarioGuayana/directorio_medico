@@ -23,7 +23,7 @@ class medicos_request extends FormRequest
      */
     public function rules()
     {
-        return ['ci_medico' => 'size:6',
+        return ['ci_medico' => 'min:6|max:7',
                 'nombres_m'=> 'required',
                 'apellidos_m' =>'required',
                 'fecha_nac',
@@ -33,6 +33,7 @@ class medicos_request extends FormRequest
                 'tlf_m' => 'required',
                 'correo_e' =>'email',
                 'direccion',
+                'consultorio' => 'required',
                 'sexo',
                 'pacientes_particular',
                 'pacientes_seguro' ];

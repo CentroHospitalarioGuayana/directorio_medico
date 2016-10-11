@@ -106,8 +106,8 @@ class especialidades_controller extends Controller
     public function destroy($id_especialidad)
     {
         $especialidades = modelo_especialidades::find($id_especialidad);
-        \Storage::delete($especialidades->imagen)
-        ;
+        \Storage::disk('especialidades')->delete($especialidades->imagen);
+
         modelo_especialidades::destroy($id_especialidad);
 
         Session::flash('message','La Especialidad Ha Sido Eliminada Exitosamente');

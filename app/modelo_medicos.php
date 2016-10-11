@@ -10,6 +10,7 @@ class modelo_medicos extends Model
   protected $primaryKey = 'id_medico';
 
   protected $fillable = [
+                  'id_medico',
                   'ci_medico',
                   'nombres_m',
                   'apellidos_m',
@@ -20,6 +21,7 @@ class modelo_medicos extends Model
                   'tlf_m',
                   'correo_e',
                   'direccion',
+                  'consultorio',
                   'sexo',
                   'pacientes_particular',
                   'pacientes_seguro'];

@@ -35,9 +35,16 @@
 </div>
 
 <div class="form-group">
-    {!!Form::label('direccion', 'Consultorio', ['class' => 'col-sm-3 control-label'])!!}
+    {!!Form::label('consultorio', 'Consultorio', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::text('direccion', null , ['class'=>'form-control', 'placeholder'=>'Sexo'])!!}
+      {!!Form::text('consultorio', null , ['class'=>'form-control', 'placeholder'=>'Consultorio'])!!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!!Form::label('direccion', 'Direccion', ['class' => 'col-sm-3 control-label'])!!}
+    <div class="col-sm-6">
+      {!!Form::text('direccion', null , ['class'=>'form-control', 'placeholder'=>'Direccion'])!!}
     </div>
 </div>
 

@@ -68,7 +68,6 @@
     {!!Html::style('assets/widgets/jcrop/jcrop.css')!!}
     {!!Html::style('assets/widgets/jgrowl-notifications/jgrowl.css')!!}
     {!!Html::style('assets/widgets/loading-bar/loadingbar.css')!!}
-    {!!Html::style('assets/widgets/maps/vector-maps/vectormaps.css')!!}
     {!!Html::style('assets/widgets/markdown/markdown.css')!!}
     {!!Html::style('assets/widgets/modal/modal.css')!!}
     {!!Html::style('assets/widgets/multi-select/multiselect.css')!!}
@@ -114,6 +113,8 @@
     {!!Html::script('assets/js-core/transition.js')!!}
     {!!Html::script('assets/js-core/modernizr.js')!!}
     {!!Html::script('assets/js-core/jquery-cookie.js')!!}
+
+    {!!Html::script('assets/widgets/modal/modal.js')!!}
 
 
     <script type="text/javascript">
@@ -205,7 +206,6 @@
                     {!!Html::script('assets/widgets/skycons/skycons.js')!!}
                     {!!Html::script('assets/widgets/datatable/datatable-bootstrap.js')!!}
                     {!!Html::script('assets/widgets/datatable/datatable-tabletools.js')!!}
-                    {!!Html::script('assets/widgets/datatable/datatable-reorder.js')!!}
 
 
 <!-- Inicio del contenido -->
@@ -223,20 +223,16 @@
         {!!Html::script('assets/widgets/popover/popover.js')!!}
         {!!Html::script('assets/widgets/progressbar/progressbar.js')!!}
         {!!Html::script('assets/widgets/button/button.js')!!}
-        {!!Html::script('assets/widgets/collapse/collapse.js')!!}
         {!!Html::script('assets/widgets/superclick/superclick.js')!!}
         {!!Html::script('assets/widgets/superclick/superclick.js')!!}
         {!!Html::script('assets/widgets/input-switch/inputswitch-alt.js')!!}
         {!!Html::script('assets/widgets/slimscroll/slimscroll.js')!!}
-        {!!Html::script('assets/widgets/slidebars/slidebars.js')!!}
-        {!!Html::script('assets/widgets/slidebars/slidebars-demo.js')!!}
         {!!Html::script('assets/widgets/charts/piegage/piegage.js')!!}
         {!!Html::script('assets/widgets/charts/piegage/piegage-demo.js')!!}
         {!!Html::script('assets/widgets/screenfull/screenfull.js')!!}
         {!!Html::script('assets/widgets/content-box/contentbox.js')!!}
         {!!Html::script('assets/widgets/material/material.js')!!}
         {!!Html::script('assets/widgets/material/ripples.js')!!}
-        {!!Html::script('assets/widgets/overlay/overlay.js')!!}
         {!!Html::script('assets/js-init/widgets-init.js')!!}
         {!!Html::script('assets/themes/admin/layout.js')!!}
 
