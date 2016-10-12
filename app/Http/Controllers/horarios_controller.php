@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
+use directorio_medico\Http\horarios_request;
+use directorio_medico\modelo_horarios;
+use Redirect;
+use Session;
+
 
 class horarios_controller extends Controller
 {
@@ -16,7 +21,9 @@ class horarios_controller extends Controller
      */
     public function index()
     {
-        //
+        $horarios = modelo_horarios::All();
+
+        return view('admin.horarios.horarios',compact('horarios'));
     }
 
     /**
@@ -26,7 +33,7 @@ class horarios_controller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.horarios.create');
     }
 
     /**
