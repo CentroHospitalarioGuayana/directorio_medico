@@ -11,15 +11,15 @@ class modelo_horarios extends Model
 
     protected $fillable = [
               'descripcion_horario',
+              'hora_inicio',
+              'hora_fin',
               'dia_lunes',
               'dia_martes',
               'dia_miercoles',
               'dia_jueves',
               'dia_viernes',
               'dia_sabado',
-              'dia_domingo',
-              'hora_inicio',
-              'hora_fin'];
-              
+              'dia_domingo'];
+
     public $timestamps = false;
 }

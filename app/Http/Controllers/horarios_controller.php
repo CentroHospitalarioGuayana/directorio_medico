@@ -44,7 +44,7 @@ class horarios_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Redirect::to('/horarios');
     }
 
     /**
