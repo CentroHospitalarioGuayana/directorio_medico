@@ -17,31 +17,31 @@
     {!!Form::label('Dias', 'Dias', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-8">
       <label class="checkbox-inline">
-        {!!Form::checkbox('dia_lunes', null, ['class'=>'form-control'])!!}
+        {!!Form::checkbox('dia_lunes', 'si', ['class'=>'form-control'])!!}
         Lunes
       </label>
       <label class="checkbox-inline">
-        {!!Form::checkbox('dia_martes', null, ['class'=>'form-control'])!!}
+        {!!Form::checkbox('dia_martes', 'si', ['class'=>'form-control'])!!}
         Martes
       </label>
       <label class="checkbox-inline">
-        {!!Form::checkbox('dia_miercoles', null, ['class'=>'form-control'])!!}
+        {!!Form::checkbox('dia_miercoles', 'si', ['class'=>'form-control'])!!}
         Miercoles
       </label>
       <label class="checkbox-inline">
-        {!!Form::checkbox('dia_jueves', null, ['class'=>'form-control'])!!}
+        {!!Form::checkbox('dia_jueves', 'si', ['class'=>'form-control'])!!}
         Jueves
       </label>
       <label class="checkbox-inline">
-        {!!Form::checkbox('dia_viernes', null, ['class'=>'form-control'])!!}
+        {!!Form::checkbox('dia_viernes', 'si', ['class'=>'form-control'])!!}
         Viernes
       </label>
       <label class="checkbox-inline">
-        {!!Form::checkbox('dia_sabado', null, ['class'=>'form-control'])!!}
+        {!!Form::checkbox('dia_sabado', 'si', ['class'=>'form-control'])!!}
         Sabado
       </label>
       <label class="checkbox-inline">
-        {!!Form::checkbox('dia_domingo', null, ['class'=>'form-control'])!!}
+        {!!Form::checkbox('dia_domingo', 'si', ['class'=>'form-control'])!!}
         Domingo
       </label>
     </div>

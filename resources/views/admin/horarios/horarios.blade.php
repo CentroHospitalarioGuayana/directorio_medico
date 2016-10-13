@@ -67,8 +67,9 @@ $(document).ready(function() {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Imagen</th>
                         <th>Descripcion</th>
+                        <th>Hora Inicio</th>
+                        <th>Hora Fin</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -86,11 +87,10 @@ $(document).ready(function() {
                 <tbody>
                   @foreach($horarios as $horario)
                     <tr>
-                        <td>{{$horario->id_especialidad}}</td>
-                        <td>
-                          <img src="img/horarios/{{$horario->imagen}}" style: width="150 px;">
-                        </td>
-                        <td>{{$horario->descripcion_especialidad}}</td>
+                        <td>{{$horario->id_horario}}</td>
+                        <td>{{$horario->descripcion_horario}}</td>
+                        <td>{{$horario->hora_inicio}}</td>
+                        <td>{{$horario->hora_fin}}</td>
                         <td>
                           {!!Html::decode(link_to_route('horarios.edit', '<span>Editar</span> <i class="glyph-icon icon-pencil"></i>', $parameters = $horario->id_especialidad, $attributes = ['class' => 'btn btn-alt btn-sm btn-hover btn-success'], array())) !!}
 

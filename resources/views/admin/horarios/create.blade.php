@@ -29,7 +29,6 @@
 
                               @include('admin.horarios.formularios.form_horarios')
 
-
                           {!!Form::close()!!}
                       </div>
                   </div>

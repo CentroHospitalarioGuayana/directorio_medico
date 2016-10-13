@@ -13,7 +13,7 @@ class horarios_request extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class horarios_request extends FormRequest
     public function rules()
     {
         return [
-            //
-        ];
+          'id_horario',
+          'descripcion_horario',
+          'hora_inicio' => 'required',
+          'hora_fin' => 'required',
+          'dia_lunes',
+          'dia_martes',
+          'dia_miercoles',
+          'dia_jueves',
+          'dia_viernes',
+          'dia_sabado',
+          'dia_domingo'
+          ];
     }
 }

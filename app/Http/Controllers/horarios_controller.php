@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
-use directorio_medico\Http\horarios_request;
+use directorio_medico\Http\Requests\horarios_request;
 use directorio_medico\modelo_horarios;
 use Redirect;
 use Session;
@@ -42,8 +42,20 @@ class horarios_controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(horarios_request $request)
     {
+        modelo_horarios::create($request->All());
+
+        /*modelo_horarios::create([
+                    'id_horario'=> $request[''],
+                    'descripcion_horario' => $request['descripcion_horario'],
+                    'hora_inicio' => $request['hora_inicio'],
+                    'hora_fin' => $request['hora_fin'],
+                    'dia_lunes' => $request['dia_lunes'],
+                    'dia_lunes' => $request['dia_martes']
+                   ]);
+*/
+        Session::flash('message','El Horario ha sido creado exitosamente.');
         return Redirect::to('/horarios');
     }
 
