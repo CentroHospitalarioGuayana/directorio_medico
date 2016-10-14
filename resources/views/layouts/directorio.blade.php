@@ -12,11 +12,11 @@
     <title>@yield('titulo')</title>
 
     <!-- Bootstrap Core CSS -->
-    {!!Html:style('css/bootstrap.min.css')!!}
+    {!!Html::style('css/bootstrap.min.css')!!}
 
     <!-- Custom CSS -->
-    {!!Html:style('css/4-col-portfolio.css')!!}
-    {!!Html:style('css/font-awesome.css')!!}
+    {!!Html::style('css/4-col-portfolio.css')!!}
+    {!!Html::style('css/font-awesome.css')!!}
 
 
 
@@ -65,15 +65,6 @@
     <!-- Contenido de la pagina -->
     <div class="container img">
 
-        <!-- Cabecera de la Pagina -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Centro Hospitalario Guayana
-                    <small>Directorio Médico</small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
 
         <!-- Fila del proyecto -->
         <div class="row">
