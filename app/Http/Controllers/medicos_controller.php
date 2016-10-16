@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
 use directorio_medico\modelo_medicos;
+use directorio_medico\modelo_especialidades;
 use directorio_medico\Http\Requests\medicos_request;
 use Session;
 use Redirect;
@@ -18,8 +19,8 @@ class medicos_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
+
         $medicos = modelo_medicos::All();
         return view('admin.medicos.medicos',compact('medicos'));
     }
@@ -31,7 +32,9 @@ class medicos_controller extends Controller
      */
     public function create()
     {
-        return view('admin.medicos.create');
+        $especialidades = modelo_especialidades::pluck('descripcion_especialidad','id_especialidad');
+
+        return view('admin.medicos.create',compact('especialidades'));
     }
 
     /**

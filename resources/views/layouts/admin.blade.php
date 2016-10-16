@@ -132,7 +132,7 @@
 
         <div id="loading">
             <div class="svg-icon-loader">
-              <img src="/img/svg-loaders/bars.svg" width="40" alt="">
+              <img src="{{asset('img/svg-loaders/bars.svg')}}" width="40" alt="">
             </div>
         </div>
 

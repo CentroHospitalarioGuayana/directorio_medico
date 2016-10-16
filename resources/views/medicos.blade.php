@@ -6,7 +6,7 @@
 
 
 <!-- Doctores de la especialidad -->
-
+@if($medicos->count())
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header"><i class="glyph-icon icon-dashboard"></i> {{ $medicos->first()->descripcion_especialidad}}</h2>
@@ -20,10 +20,13 @@
                 <h4 class="label label-success">Atencion</h4>
                 <h4>Lun,mie,vie <small>8:00 am a 11:00 am</small></h4>
 
-                <!-- <button href="#" class="btn btn-primary" role="button">CITA</button> -->
             </div>
         </div>
     @endforeach
 </div>
+@else
+       <h1><span class="label label-danger">No existen medicos en esta especialidad</span></h1>
 
+
+ @endif
 @endsection
