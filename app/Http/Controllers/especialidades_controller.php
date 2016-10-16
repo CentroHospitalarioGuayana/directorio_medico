@@ -61,9 +61,11 @@ class especialidades_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_especialidad)
     {
-        //
+        $medicos = modelo_especialidades::especialidad_medico($id_especialidad);
+
+        return view('medicos',compact('medicos'));
     }
 
     /**

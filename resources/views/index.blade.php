@@ -20,7 +20,7 @@
     <div class="col-md-3 portfolio-item">
         <div class="item-container">
             <h4>{{$especialidad->descripcion_especialidad}}</h4>
-            <a href="{{asset('/medicos/show/{{$especialidad->id_especialidad}}')}}">
+            <a href="{{asset('/especialidades')}}/{{$especialidad->id_especialidad}}">
                 <img class="img-responsive" src="/img/especialidades/{{$especialidad->imagen}}" alt="">
             </a>
         </div>

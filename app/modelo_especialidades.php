@@ -27,11 +27,13 @@ class modelo_especialidades extends Model
   
 
 
-    public static function imagen_productos(){
-      return DB::table('imgProd')
-      ->join('detalleproducto', 'detalleproducto.id_detalle', '=', 'imgProd.id_detalle')
-      ->select('detalleproducto.nombreProducto', 'imgProd.imgProd', 'imgProd.id_imgProd')
-      ->paginate(6);
+    public static function especialidad_medico($id_especialidad){
+      return DB::table('tbl_especialidad_medico')
+          ->join('tbl_medicos', 'tbl_medicos.id_medico', '=', 'tbl_especialidad_medico.fk_medico')
+          ->join('tbl_especialidades', 'tbl_especialidades.id_especialidad', '=', 'tbl_especialidad_medico.fk_especialidad')
+          ->select('tbl_medicos.*',  'tbl_especialidades.descripcion_especialidad')
+          ->where('tbl_especialidad_medico.fk_especialidad', '=', $id_especialidad)
+          ->get();
 
     }
 }

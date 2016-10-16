@@ -147,7 +147,6 @@
                     <ul id="sidebar-menu">
                         <li class="header"><span>Principal</span></li>
                         <li><a href="index.html" title="Dashboard"><i class="glyph-icon icon-dashboard"></i> <span>Dashboard</span></a></li>
-                        <li><a href="index.html" title="Admin Dashboard"><i class="glyph-icon icon-file-o"></i> <span>Layout</span></a></li>
 
                         <li class="header"><span>Medicos</span></li>
                         <li><a href="{{asset('/medicos')}}" title="Medicos"><i class="glyph-icon icon-user-md"></i> <span>Medicos</span></a>  </li>
