@@ -10,6 +10,7 @@ class modelo_horarios extends Model
     protected $Primarykey = 'id_horario';
 
     protected $fillable = [
+              'fk_medico',
               'descripcion_horario',
               'hora_inicio',
               'hora_fin',

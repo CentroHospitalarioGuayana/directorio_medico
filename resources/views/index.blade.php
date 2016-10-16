@@ -21,7 +21,7 @@
         <div class="item-container">
             <h4>{{$especialidad->descripcion_especialidad}}</h4>
             <a href="{{asset('/especialidades')}}/{{$especialidad->id_especialidad}}">
-                <img class="img-responsive" src="/img/especialidades/{{$especialidad->imagen}}" alt="">
+                <img class="img-responsive" src="{{asset('/img/especialidades')}}/{{$especialidad->imagen}}" alt="">
             </a>
         </div>
     </div>
