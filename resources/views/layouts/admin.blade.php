@@ -146,7 +146,7 @@
                 <div class="scroll-sidebar">
                     <ul id="sidebar-menu">
                         <li class="header"><span>Principal</span></li>
-                        <li><a href="index.html" title="Dashboard"><i class="glyph-icon icon-dashboard"></i> <span>Dashboard</span></a></li>
+                        <li><a href="{{asset('/dashboard')}}" title="Dashboard"><i class="glyph-icon icon-dashboard"></i> <span>Dashboard</span></a></li>
 
                         <li class="header"><span>Medicos</span></li>
                         <li><a href="{{asset('/medicos')}}" title="Medicos"><i class="glyph-icon icon-user-md"></i> <span>Medicos</span></a>  </li>
@@ -156,11 +156,11 @@
                         <li><a href="{{asset('/especialidades')}}" title="Especialidades"><i class="glyph-icon icon-stethoscope"></i> <span>Especialidades</span></a></li>
 
                         <li class="header"><span>Usuarios</span></li>
-                        <li><a href="javascript:void(0);" title="Pages"><i class="glyph-icon icon-users"></i> <span>Usuarios</span> </a>
+                        <li><a href="javascript:void(0);" title="Usuarios"><i class="glyph-icon icon-users"></i> <span>Usuarios</span> </a>
                             <div class="sidebar-submenu">
                                 <ul>
-                                    <li><a href="index-alt.html" title="Alternate dashboard"><span>Usuarios</span></a></li>
-                                    <li><a href="view-profile.html" title="View profile"><span>Perfiles</span></a></li>
+                                    <li><a href="index-alt.html" title="Usuarios"><span>Usuarios</span></a></li>
+                                    <li><a href="view-profile.html" title="Perfiles"><span>Perfiles</span></a></li>
                                 </ul>
                             </div>
                         </li>
@@ -175,11 +175,11 @@
                         <div id="header-nav-left">
                           <a class="header-btn" id="logout-btn"></a>
                             <div class="user-account-btn dropdown">
-                                <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown"><img width="28" src="../assets/image-resources/gravatar.jpg" alt="Profile image"> <span>Usuario</span> <i class="glyph-icon icon-angle-down"></i></a>
+                                <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown"><img width="28" src="{{asset('assets/image-resources/gravatar.jpg')}}" alt="Imagen de perfil"> <span>Usuario</span> <i class="glyph-icon icon-angle-down"></i></a>
                                 <div class="dropdown-menu float-right">
                                     <div class="box-sm">
                                         <div class="login-box clearfix">
-                                            <div class="user-img"><a href="#" title="" class="change-img">Change photo</a> <img src="../assets/image-resources/gravatar.jpg" alt=""></div>
+                                            <div class="user-img"><img src="{{asset('assets/image-resources/gravatar.jpg')}}" alt=""></div>
                                             <div class="user-info"><span>Usuario <i>Tipo de usuario</i></span> </div>
                                         </div>
                                         <div class="divider"></div>
@@ -220,6 +220,7 @@
         {!!Html::script('assets/widgets/dropdown/dropdown.js')!!}
         {!!Html::script('assets/widgets/tooltip/tooltip.js')!!}
         {!!Html::script('assets/widgets/popover/popover.js')!!}
+        {!!Html::script('assets/widgets/collapse/collapse.js')!!}
         {!!Html::script('assets/widgets/progressbar/progressbar.js')!!}
         {!!Html::script('assets/widgets/button/button.js')!!}
         {!!Html::script('assets/widgets/superclick/superclick.js')!!}

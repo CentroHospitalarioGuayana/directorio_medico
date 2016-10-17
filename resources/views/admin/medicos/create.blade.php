@@ -6,8 +6,8 @@
 
     {!!Html::script('assets/widgets/timepicker/timepicker.js')!!}
     {!!Html::script('assets/widgets/datepicker/datepicker.js')!!}
-    {!!Html::script('assets/widgets/tabs/tabs.js')!!}}
-    {!!Html::script('assets/widgets/tabs/tabs-responsive.js')!!}}
+    {!!Html::script('assets/widgets/tabs/tabs.js')!!}
+    {!!Html::script('assets/widgets/tabs/tabs-responsive.js')!!}
     {!!Html::script('assets/widgets/multi-select/multiselect.js')!!}
 
     {!!Html::script('assets/widgets/uniform/uniform.js')!!}
