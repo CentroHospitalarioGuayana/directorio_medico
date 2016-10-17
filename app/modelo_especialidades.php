@@ -23,10 +23,6 @@ class modelo_especialidades extends Model
           }
       }
 
-
-  
-
-
     public static function especialidad_medico($id_especialidad){
       return DB::table('tbl_especialidad_medico')
           ->join('tbl_medicos', 'tbl_medicos.id_medico', '=', 'tbl_especialidad_medico.fk_medico')

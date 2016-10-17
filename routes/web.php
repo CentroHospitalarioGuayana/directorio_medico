@@ -19,6 +19,7 @@ Route::get('/', 'FrontController@index');
 Route::resource('medicos','medicos_controller');
 Route::resource('especialidades','especialidades_controller');
 Route::resource('horarios','horarios_controller');
+Route::resource('especialidad_medico','especialidad_medico_controller');
 
 Route::get('cardiologos', 'FrontController@cardiologos');
 Route::get('pediatras', 'FrontController@pediatras');

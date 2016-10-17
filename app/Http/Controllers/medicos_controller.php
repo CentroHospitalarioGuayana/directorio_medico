@@ -87,9 +87,8 @@ class medicos_controller extends Controller
     public function edit($id_medico)
     {
         $medicos = modelo_medicos::find($id_medico);
-        return view('admin.medicos.edit',['medicos'=>$medicos]);
-        Session::flash('message','El Medico Ha Sido Actualizado Exitosamente');
-        return Redirect::to('/medicos');
+        $especialidades = modelo_especialidades::pluck('descripcion_especialidad','id_especialidad');
+        return view('admin.medicos.edit',['medicos'=>$medicos],compact('especialidades'));
     }
 
     /**

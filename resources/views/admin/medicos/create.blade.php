@@ -71,8 +71,8 @@
         <div class="example-box-wrapper">
             <ul class="list-group list-group-separator row list-group-icons">
                 <li class="col-md-3 active"><a href="#tab-1" data-toggle="tab" class="list-group-item"><i class="glyph-icon icon-user"></i> Datos</a></li>
-                <li class="col-md-3"><a href="#tab-2" data-toggle="tab" class="list-group-item"><i class="glyph-icon icon-clock-o"></i> Horarios</a></li>
-                <li class="col-md-3"><a href="#tab-3" data-toggle="tab" class="list-group-item"><i class="glyph-icon  icon-stethoscope"></i> Especialidades</a></li>
+                <li class="col-md-3"><a href="#tab-2" data-toggle="tab" class="list-group-item"><i class="glyph-icon  icon-stethoscope"></i> Especialidades</a></li>
+                <li class="col-md-3"><a href="#tab-3" data-toggle="tab" class="list-group-item"><i class="glyph-icon icon-clock-o"></i> Horarios</a></li>
 
             </ul>
             <div class="tab-content">
@@ -83,23 +83,21 @@
 
                     {!!Form::close()!!}
                 </div>
+                
                 <div class="tab-pane fade" id="tab-2">
+                    {!!Form::open(['route'=>'especialidad_medico.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
+                        @include('admin.especialidades.formularios.form_especialidad_medico')
+                    {!!Form::close()!!}
+                </div>
+                
+                <div class="tab-pane fade" id="tab-3">
                     {!!Form::open(['route'=>'horarios.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
 
                     @include('admin.horarios.formularios.form_horarios')
 
                     {!!Form::close()!!}
                 </div>
-                <div class="tab-pane fade" id="tab-3">
-                    {!!Form::open(['route'=>'horarios.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
-                    <div class="form-group"><label class="col-sm-3 control-label">Especialidad</label>
-                        <div class="col-sm-6">
-                            {!!Form::select('fk_especialidad',$especialidades, null, ['multiple'=>'multiple', 'data-placeholder'=>'Click aqui para seleccionar las especialdiades', 'class'=>'chosen-select'])!!}
-
-                        </div>
-                    </div>
-                    {!!Form::close()!!}
-                </div>
+                
             </div>
         </div>
     </div>
