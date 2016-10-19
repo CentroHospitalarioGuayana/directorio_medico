@@ -56,7 +56,7 @@ class horarios_controller extends Controller
                    ]);
 */
         Session::flash('message','El Horario ha sido creado exitosamente.');
-        return Redirect::to('/horarios');
+        return Redirect::to('/medicos'.'#tab-3');
     }
 
     /**

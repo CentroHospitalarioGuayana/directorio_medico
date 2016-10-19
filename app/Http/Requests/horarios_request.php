@@ -25,6 +25,8 @@ class horarios_request extends FormRequest
     {
         return [
           'id_horario',
+          'fk_medico',
+          'fk_especialidad',  
           'descripcion_horario',
           'hora_inicio' => 'required',
           'hora_fin' => 'required',

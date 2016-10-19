@@ -11,6 +11,7 @@ class modelo_horarios extends Model
 
     protected $fillable = [
               'fk_medico',
+              'fk_especialiad',
               'descripcion_horario',
               'hora_inicio',
               'hora_fin',
