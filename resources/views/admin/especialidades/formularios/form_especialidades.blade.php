@@ -18,7 +18,7 @@
               <div class="fileinput fileinput-new" data-provides="fileinput">
                 <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px"></div>
                         <div>
-                          <span class="btn btn-default btn-file"><span class="fileinput-new">Seleciona la imagen</span> <span class="fileinput-exists">Cambiar</span>
+                          <span class="btn btn-primary btn-file"><span class="fileinput-new">Seleciona la imagen</span> <span class="fileinput-exists">Cambiar</span>
                           {!!Form::file('imagen', null , ['class'=>'form-control'])!!}
                         </span> <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remover</a>
                         </div>
@@ -34,9 +34,3 @@
     </div>
 </div>
 
-
-
-<!--
-<button class="btn btn-alt btn-sm btn-hover btn-success"><span>Editar</span> <i class="glyph-icon icon-pencil"></i></button>
-<button class="btn btn-alt btn-sm btn-hover btn-danger"><span>Eliminar</span> <i class="glyph-icon icon-trash"></i></button>
--->

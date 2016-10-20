@@ -15,9 +15,11 @@
     <title>@yield('titulo')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
-    <link rel="shortcut icon" href="../assets/images/icons/favicon.png">
-
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/images/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/images/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/images/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../assets/images/icons/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../assets/images/icons/favicon.png">
     {!!Html::style('assets/helpers/animate.css')!!}
     {!!Html::style('assets/helpers/boilerplate.css')!!}
     {!!Html::style('assets/helpers/border-radius.css')!!}
@@ -52,6 +54,10 @@
     {!!Html::style('assets/widgets/accordion-ui/accordion.css')!!}
     {!!Html::style('assets/widgets/calendar/calendar.css')!!}
     {!!Html::style('assets/widgets/carousel/carousel.css')!!}
+    {!!Html::style('assets/widgets/charts/justgage/justgage.css')!!}
+    {!!Html::style('assets/widgets/charts/morris/morris.css')!!}
+    {!!Html::style('assets/widgets/charts/piegage/piegage.css')!!}
+    {!!Html::style('assets/widgets/charts/xcharts/xcharts.css')!!}
     {!!Html::style('assets/widgets/chosen/chosen.css')!!}
     {!!Html::style('assets/widgets/colorpicker/colorpicker.css')!!}
     {!!Html::style('assets/widgets/datatable/datatable.css')!!}
@@ -68,6 +74,7 @@
     {!!Html::style('assets/widgets/jcrop/jcrop.css')!!}
     {!!Html::style('assets/widgets/jgrowl-notifications/jgrowl.css')!!}
     {!!Html::style('assets/widgets/loading-bar/loadingbar.css')!!}
+    {!!Html::style('assets/widgets/maps/vector-maps/vectormaps.css')!!}
     {!!Html::style('assets/widgets/markdown/markdown.css')!!}
     {!!Html::style('assets/widgets/modal/modal.css')!!}
     {!!Html::style('assets/widgets/multi-select/multiselect.css')!!}
@@ -95,7 +102,7 @@
     {!!Html::style('assets/snippets/notification-box.css')!!}
     {!!Html::style('assets/snippets/progress-box.css')!!}
     {!!Html::style('assets/snippets/todo.css')!!}
-    {!!Html::style('assets/snippets/user-profile.css')!!}
+    {!!Html::style('assets/snippets/user-profile')!!}
     {!!Html::style('assets/snippets/mobile-navigation.css')!!}
     {!!Html::style('assets/applications/mailbox.css')!!}
     {!!Html::style('assets/themes/admin/layout.css')!!}
@@ -104,18 +111,16 @@
     {!!Html::style('assets/themes/components/border-radius.css')!!}
     {!!Html::style('assets/helpers/responsive-elements.css')!!}
     {!!Html::style('assets/helpers/admin-responsive.css')!!}
-
-    {!!Html::script('assets/js-core/jquery-core.js')!!}
+    
     {!!Html::script('assets/js-core/jquery-ui-core.js')!!}
+    {!!Html::script('assets/js-core/jquery-core.js')!!}
     {!!Html::script('assets/js-core/jquery-ui-widget.js')!!}
     {!!Html::script('assets/js-core/jquery-ui-mouse.js')!!}
     {!!Html::script('assets/js-core/jquery-ui-position.js')!!}
     {!!Html::script('assets/js-core/transition.js')!!}
     {!!Html::script('assets/js-core/modernizr.js')!!}
     {!!Html::script('assets/js-core/jquery-cookie.js')!!}
-    {!!Html::script('assets/widgets/modal/modal.js')!!}
-
-
+    
     <script type="text/javascript">
         $(window).load(function() {
             setTimeout(function() {
@@ -126,116 +131,81 @@
 </head>
 
 <body>
-    <div id="sb-site">
-
-
-        <div id="loading">
-            <div class="svg-icon-loader">
-              <img src="{{asset('img/svg-loaders/bars.svg')}}" width="40" alt="">
-            </div>
-        </div>
-
-        <div id="page-wrapper">
-            <div id="mobile-navigation">
-                <button id="nav-toggle" class="collapsed" data-toggle="collapse" data-target="#page-sidebar"><span></span></button>
-            </div>
-            <div id="page-sidebar">
-                <div id="header-logo" class="logo-bg"><a href="index.html" class="logo-content-big" title="DelightUI">Delight <i>UI</i> <span>Material Design Dashboard Template</span></a> <a href="index.html" class="logo-content-small" title="DelightUI">Delight <i>UI</i> <span>Material Design Dashboard Template</span></a>                    <a id="close-sidebar" href="#" title="Close sidebar"><i class="glyph-icon icon-outdent"></i></a></div>
-
-                <div class="scroll-sidebar">
-                    <ul id="sidebar-menu">
-                        <li class="header"><span>Principal</span></li>
-                        <li><a href="{{asset('/dashboard')}}" title="Dashboard"><i class="glyph-icon icon-dashboard"></i> <span>Dashboard</span></a></li>
-
-                        <li class="header"><span>Medicos</span></li>
-                        <li><a href="{{asset('/medicos')}}" title="Medicos"><i class="glyph-icon icon-user-md"></i> <span>Medicos</span></a>  </li>
-
-                        <li><a href="{{asset('/horarios')}}" title="Horarios"><i class="glyph-icon icon-clock-o"></i> <span>Horarios</span></a></li>
-
-                        <li><a href="{{asset('/especialidades')}}" title="Especialidades"><i class="glyph-icon icon-stethoscope"></i> <span>Especialidades</span></a></li>
-
-                        <li class="header"><span>Usuarios</span></li>
-                        <li><a href="javascript:void(0);" title="Usuarios"><i class="glyph-icon icon-users"></i> <span>Usuarios</span> </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li><a href="index-alt.html" title="Usuarios"><span>Usuarios</span></a></li>
-                                    <li><a href="view-profile.html" title="Perfiles"><span>Perfiles</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-            <div id="page-content-wrapper">
-                <div id="page-content">
-                    <div id="page-header">
-                        <div id="header-nav-left">
-                          <a class="header-btn" id="logout-btn"></a>
-                            <div class="user-account-btn dropdown">
-                                <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown"><img width="28" src="{{asset('assets/image-resources/gravatar.jpg')}}" alt="Imagen de perfil"> <span>Usuario</span> <i class="glyph-icon icon-angle-down"></i></a>
-                                <div class="dropdown-menu float-right">
-                                    <div class="box-sm">
-                                        <div class="login-box clearfix">
-                                            <div class="user-img"><img src="{{asset('assets/image-resources/gravatar.jpg')}}" alt=""></div>
-                                            <div class="user-info"><span>Usuario <i>Tipo de usuario</i></span> </div>
-                                        </div>
-                                        <div class="divider"></div>
-                                        <ul class="reset-ul mrg5B">
-                                            <li><a href="#">Ver mi perfil</a></li>
-                                            <li><a href="#">Modificar mis datos</a></li>
-                                        </ul>
-                                        <div class="button-pane button-pane-alt pad5L pad5R text-center">
-                                          <a href="#" class="btn btn-flat display-block font-normal btn-danger"><i class="glyph-icon icon-power-off"></i> Salir</a>
-                                        </div>
-                                    </div>
-                                </div>
+    <div id="loading">
+        <div class="svg-icon-loader"><img src="{{asset('img/svg-loaders/bars.svg')}}" width="40" alt=""></div>
+    </div>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+    </style>
+    <div class="center-vertical bg-black">
+        <div class="center-content">
+            <form action="{!!asset('/especialidades')!!}" id="login-validation" class="col-md-5 col-sm-5 col-xs-11 center-margin" method="pots" >
+                <h3 class="text-center pad25B font-gray font-size-23">Directorio Medico <span class="opacity-80">v1.0</span></h3>
+                <div id="login-form" class="content-box">
+                    <div class="content-box-wrapper pad20A">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email:</label>
+                            <div class="input-group input-group-lg"><span class="input-group-addon addon-inside bg-white font-primary"><i class="glyph-icon icon-envelope-o"></i></span>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                             </div>
                         </div>
-                        <div id="header-nav-right">
-                            <a href="#" class="hdr-btn" id="fullscreen-btn" title="Fullscreen"><i class="glyph-icon icon-arrows-alt"></i></a>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Contraseña:</label>
+                            <div class="input-group input-group-lg"><span class="input-group-addon addon-inside bg-white font-primary"><i class="glyph-icon icon-unlock-alt"></i></span>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="checkbox-primary col-md-6" style="height: 20px">
+                                <label>
+                                    <input type="checkbox" id="loginCheckbox1" class="custom-checkbox"> Recordarme</label>
+                            </div>
+                            <div class="text-right col-md-6"><a href="#" class="switch-button" switch-target="#login-forgot" switch-parent="#login-form" title="Recover password">Olvido su contraseña?</a></div>
                         </div>
                     </div>
-
-
-                    {!!Html::script('assets/widgets/skycons/skycons.js')!!}
-                    {!!Html::script('assets/widgets/datatable/datatable.js')!!}
-                    {!!Html::script('assets/widgets/skycons/skycons.js')!!}
-                    {!!Html::script('assets/widgets/datatable/datatable-bootstrap.js')!!}
-                    {!!Html::script('assets/widgets/datatable/datatable-tabletools.js')!!}
-
-
-<!-- Inicio del contenido -->
-                    @yield('contenido')
-
-<!-- fin del contenido -->
-
+                    <div class="button-pane">
+                        {!!Form::submit('Entrar', ['class'=>'btn btn-block btn-primary'])!!}
+                    </div>
                 </div>
-            </div>
+                <div id="login-forgot" class="content-box modal-content hide">
+                    <div class="content-box-wrapper pad20A">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email :</label>
+                            <div class="input-group input-group-lg"><span class="input-group-addon addon-inside bg-white font-primary"><i class="glyph-icon icon-envelope-o"></i></span>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-pane text-center">
+                        <button type="submit" class="btn btn-md btn-primary">Recuperar contraseña</button> <a href="#" class="btn btn-md btn-link switch-button" switch-target="#login-form" switch-parent="#login-forgot" title="Cancel">Cancel</a></div>
+                </div>
+            </form>
         </div>
-
-
-        {!!Html::script('assets/widgets/dropdown/dropdown.js')!!}
-        {!!Html::script('assets/widgets/tooltip/tooltip.js')!!}
-        {!!Html::script('assets/widgets/popover/popover.js')!!}
-        {!!Html::script('assets/widgets/collapse/collapse.js')!!}
-        {!!Html::script('assets/widgets/progressbar/progressbar.js')!!}
-        {!!Html::script('assets/widgets/button/button.js')!!}
-        {!!Html::script('assets/widgets/superclick/superclick.js')!!}
-        {!!Html::script('assets/widgets/superclick/superclick.js')!!}
-        {!!Html::script('assets/widgets/input-switch/inputswitch-alt.js')!!}
-        {!!Html::script('assets/widgets/slimscroll/slimscroll.js')!!}
-        {!!Html::script('assets/widgets/charts/piegage/piegage.js')!!}
-        {!!Html::script('assets/widgets/charts/piegage/piegage-demo.js')!!}
-        {!!Html::script('assets/widgets/screenfull/screenfull.js')!!}
-        {!!Html::script('assets/widgets/content-box/contentbox.js')!!}
-        {!!Html::script('assets/widgets/material/material.js')!!}
-        {!!Html::script('assets/widgets/material/ripples.js')!!}
-        {!!Html::script('assets/js-init/widgets-init.js')!!}
-        {!!Html::script('assets/themes/admin/layout.js')!!}
-
     </div>
+    
+    {!!Html::script('assets/widgets/dropdown/dropdown.js')!!}
+    {!!Html::script('assets/widgets/tooltip/tooltip.js')!!}
+    {!!Html::script('assets/widgets/popover/popover.js')!!}
+    {!!Html::script('assets/widgets/progressbar/progressbar.js')!!}
+    {!!Html::script('assets/widgets/button/button.js')!!}
+    {!!Html::script('assets/widgets/collapse/collapse.js')!!}
+    {!!Html::script('assets/widgets/superclick/superclick.js')!!}
+    {!!Html::script('assets/widgets/input-switch/inputswitch-alt.js')!!}
+    {!!Html::script('assets/widgets/slimscroll/slimscroll.js')!!}
+    {!!Html::script('assets/widgets/slidebars/slidebars.js')!!}
+    {!!Html::script('assets/widgets/slidebars/slidebars-demo.js')!!}
+    {!!Html::script('assets/widgets/charts/piegage/piegage.js')!!}
+    {!!Html::script('assets/widgets/charts/piegage/piegage-demo.js')!!}
+    {!!Html::script('assets/widgets/screenfull/screenfull.js')!!}
+    {!!Html::script('assets/widgets/content-box/contentbox.js')!!}
+    {!!Html::script('assets/widgets/material/material.js')!!}
+    {!!Html::script('assets/widgets/material/ripples.js')!!}
+    {!!Html::script('assets/widgets/overlay/overlay.js')!!}
+    {!!Html::script('assets/js-init/widgets-init.js')!!}
+    {!!Html::script('assets/themes/admin/layout.js')!!}
 </body>
 
 </html>

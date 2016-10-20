@@ -83,14 +83,14 @@
                     {!!Form::close()!!}
                 </div>
                 <div class="tab-pane fade" id="tab-2">
-                    {!!Form::open(['route'=>'horarios.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
+                    {!!Form::open(['route'=>'especilidad_medico.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
 
                      @include('admin.especialidades.formularios.form_especialidad_medico')
 
                     {!!Form::close()!!}
                 </div>
                 <div class="tab-pane fade" id="tab-3">
-                    {!!Form::open(['route'=>'horarios.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
+                    {!!Form::model(['route'=>'horarios.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
                     
                            @include('admin.horarios.formularios.form_horarios')
 

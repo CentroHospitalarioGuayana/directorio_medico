@@ -9,16 +9,16 @@
 
 </div>
 @include('mensajes.msj_validacion')
-  <div class="panel">
-                  <div class="panel-body">
-                      <h3 class="title-hero">Especialidad</h3>
-                      <div class="example-box-wrapper">
-                          {!!Form::open(['route'=>'especialidades.store','method'=>'POST', 'files'=> true, 'class'=>'form-horizontal bordered-row'])!!}
+ <div class="panel">
+          <div class="panel-body">
+              <h3 class="title-hero">Especialidad</h3>
+              <div class="example-box-wrapper">
+                  {!!Form::open(['route'=>'especialidades.store','method'=>'POST', 'files'=> true, 'class'=>'form-horizontal bordered-row'])!!}
 
-                            @include('admin.especialidades.formularios.form_especialidades')
+                    @include('admin.especialidades.formularios.form_especialidades')
 
-                          {!!Form::close()!!}
-                      </div>
-                  </div>
+                  {!!Form::close()!!}
+              </div>
+          </div>
 </div>
 @endsection
