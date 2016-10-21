@@ -4,54 +4,54 @@
 
 @section('contenido')
 
-    {!!Html::script('assets/widgets/timepicker/timepicker.js')!!}
-    {!!Html::script('assets/widgets/datepicker/datepicker.js')!!}
-    {!!Html::script('assets/widgets/tabs/tabs.js')!!}
-    {!!Html::script('assets/widgets/tabs/tabs-responsive.js')!!}
-    {!!Html::script('assets/widgets/multi-select/multiselect.js')!!}
+{!!Html::script('assets/widgets/timepicker/timepicker.js')!!}
+{!!Html::script('assets/widgets/datepicker/datepicker.js')!!}
+{!!Html::script('assets/widgets/tabs/tabs.js')!!}
+{!!Html::script('assets/widgets/tabs/tabs-responsive.js')!!}
+{!!Html::script('assets/widgets/multi-select/multiselect.js')!!}
 
-    {!!Html::script('assets/widgets/uniform/uniform.js')!!}
-    {!!Html::script('assets/widgets/uniform/uniform-demo.js')!!}
-    {!!Html::script('assets/widgets/chosen/chosen.js')!!}
-    {!!Html::script('assets/widgets/chosen/chosen-demo.js')!!}
+{!!Html::script('assets/widgets/uniform/uniform.js')!!}
+{!!Html::script('assets/widgets/uniform/uniform-demo.js')!!}
+{!!Html::script('assets/widgets/chosen/chosen.js')!!}
+{!!Html::script('assets/widgets/chosen/chosen-demo.js')!!}
 
-    <script type="text/javascript">
-        /* Multiselect inputs */
+<script type="text/javascript">
+    /* Multiselect inputs */
 
-        $(function() {
-            "use strict";
-            $(".multi-select").multiSelect();
-            $(".ms-container").append('<i class="glyph-icon icon-exchange"></i>');
+    $(function () {
+        "use strict";
+        $(".multi-select").multiSelect();
+        $(".ms-container").append('<i class="glyph-icon icon-exchange"></i>');
+    });
+</script>
+
+<script type="text/javascript">
+    /* Timepicker */
+
+    $(function () {
+        "use strict";
+        $('.timepicker-example').timepicker();
+    });
+</script>
+
+
+<script type="text/javascript">
+    /* Datepicker bootstrap */
+
+    $(function () {
+        "use strict";
+        $('.bootstrap-datepicker').bsdatepicker({
+            format: 'yyyy-mm-dd'
         });
-    </script>
-
-    <script type="text/javascript">
-        /* Timepicker */
-
-        $(function() {
-            "use strict";
-            $('.timepicker-example').timepicker();
-        });
-    </script>
-
-
-    <script type="text/javascript">
-      /* Datepicker bootstrap */
-
-      $(function() {
-          "use strict";
-          $('.bootstrap-datepicker').bsdatepicker({
-              format: 'yyyy-mm-dd'
-          });
-      });
-    </script>
+    });
+</script>
 
 
 
 
 <script type="text/javascript">
     /* Responsive tabs */
-    $(function() {
+    $(function () {
         "use strict";
         $('.nav-responsive').tabdrop();
     });
@@ -83,13 +83,13 @@
 
                     {!!Form::close()!!}
                 </div>
-                
+
                 <div class="tab-pane fade" id="tab-2">
                     {!!Form::open(['route'=>'especialidad_medico.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
-                        @include('admin.especialidades.formularios.form_especialidad_medico')
+                    @include('admin.especialidades.formularios.form_especialidad_medico')
                     {!!Form::close()!!}
                 </div>
-                
+
                 <div class="tab-pane fade" id="tab-3">
                     {!!Form::open(['route'=>'horarios.store','method'=>'POST', 'class'=>'form-horizontal bordered-row'])!!}
 
@@ -97,7 +97,7 @@
 
                     {!!Form::close()!!}
                 </div>
-                
+
             </div>
         </div>
     </div>
