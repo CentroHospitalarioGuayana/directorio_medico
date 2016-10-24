@@ -3,16 +3,15 @@
 namespace directorio_medico\Http\Controllers;
 
 use Illuminate\Http\Request;
+use directorio_medico\Http\Requests\perfiles_request;
+use directorio_medico\modelo_perfiles;
 
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
-
-use directorio_medico\modelo_usuarios;
-use directorio_medico\modelo_perfiles;
-use Redirect;
 use Session;
+use Redirect;
 
-class usuarios_controller extends Controller
+class perfiles_controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,8 +20,9 @@ class usuarios_controller extends Controller
      */
     public function index()
     {
-        $usuarios = modelo_usuarios::All();
-        return view('admin.usuarios.usuarios',compact('usuarios'));
+      $perfiles = modelo_perfiles::All();
+
+      return view('admin.perfiles.perfiles',compact('perfiles'));
     }
 
     /**
@@ -32,8 +32,7 @@ class usuarios_controller extends Controller
      */
     public function create()
     {
-        $perfiles = modelo_perfiles::pluck('descripcion_perfil','id_perfil');
-        return view('admin.usuarios.create',compact('perfiles'));
+        return view('admin.perfiles.create');
     }
 
     /**
@@ -42,13 +41,12 @@ class usuarios_controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(usuarios_request $request)
+    public function store(perfiles_request $request)
     {
-        modelo_usuarios::create($request->All());
+        modelo_perfiles::create($request->all());
 
-        Session::flash('message','El usuario ha sido creado exitosamente');
-        Redirect::to('/usuarios');
-
+        Session::flash('message','El perfil ha sido creado exitosamente');
+        return Redirect::to('/perfiles');
     }
 
     /**
@@ -68,14 +66,11 @@ class usuarios_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_usuario)
+    public function edit($id_perfil)
     {
-      $perfiles = modelo_perfiles::pluck('descripcion_perfil','id_perfil');
-      $usuarios = modelo_usuarios::find($id_usuario);
+        $perfiles = modelo_perfiles::find($id_perfil);
 
-      return view('admin.usuarios.edit',['usuarios'=>$usuarios],compact('perfiles'));
-
-
+        return view('admin.perfiles.edit',compact('perfiles'));
     }
 
     /**
@@ -85,12 +80,16 @@ class usuarios_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id_perfil, perfiles_request $request)
     {
-       modelo_usuarios::edit($request->All());
 
-       Session::flash('message','El usuario ha sido modificado exitosamente');
-       Redirect::to('/usuarios');
+        $perfiles = modelo_perfiles::find($id_perfil);
+        $perfiles->fill($request->all());
+        $perfiles->save();
+
+        Session::flash('message','El perfil ha sido actualizado exitosamente');
+
+        return Redirect::to('/perfiles');
     }
 
     /**
@@ -99,11 +98,11 @@ class usuarios_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_usuario)
+    public function destroy($id_perfil)
     {
-        modelo_usuarios::destroy($id_usuario);
+        modelo_perfiles::destroy($id_perfil);
 
-        Session::flash('message','El usuario ha sido eliminado exitosamente');
-        Redirect::to('/usuarios');
+        Session::flash('message','El perfil ha sido eliminado exitosamente');
+        return Redirect::to('/perfiles');
     }
 }

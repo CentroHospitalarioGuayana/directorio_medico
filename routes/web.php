@@ -20,6 +20,8 @@ Route::resource('medicos','medicos_controller');
 Route::resource('especialidades','especialidades_controller');
 Route::resource('horarios','horarios_controller');
 Route::resource('especialidad_medico','especialidad_medico_controller');
+Route::resource('perfiles','perfiles_controller');
+Route::resource('usuarios','usuarios_controller');
 
 Route::resource('login','login_controller');
 

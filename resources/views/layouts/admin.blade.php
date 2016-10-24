@@ -158,8 +158,8 @@
                         <li><a href="javascript:void(0);" title="Usuarios"><i class="glyph-icon icon-users"></i> <span>Usuarios</span> </a>
                             <div class="sidebar-submenu">
                                 <ul>
-                                    <li><a href="index-alt.html" title="Usuarios"><span>Usuarios</span></a></li>
-                                    <li><a href="view-profile.html" title="Perfiles"><span>Perfiles</span></a></li>
+                                    <li><a href="{{asset('/usuarios')}}" title="Usuarios"><span>Usuarios</span></a></li>
+                                    <li><a href="{{asset('/perfiles')}}" title="Perfiles"><span>Perfiles</span></a></li>
                                 </ul>
                             </div>
                         </li>
