@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
 
+use directorio_medico\Http\Resquests\usuarios_request;
 use directorio_medico\modelo_usuarios;
 use directorio_medico\modelo_perfiles;
 use Redirect;
@@ -73,7 +74,7 @@ class usuarios_controller extends Controller
       $perfiles = modelo_perfiles::pluck('descripcion_perfil','id_perfil');
       $usuarios = modelo_usuarios::find($id_usuario);
 
-      return view('admin.usuarios.edit',['usuarios'=>$usuarios],compact('perfiles'));
+      return view('admin.usuarios.edit',compact('usuarios','perfiles'));
 
 
     }
@@ -85,9 +86,11 @@ class usuarios_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(usuarios_request $request, $id_usuario)
     {
-       modelo_usuarios::edit($request->All());
+       $usuarios = modelo_usuarios::find($id_usuario);
+       $usuarios->fill($request->all());
+       $usaurios->save();
 
        Session::flash('message','El usuario ha sido modificado exitosamente');
        Redirect::to('/usuarios');
