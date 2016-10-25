@@ -68,6 +68,7 @@
                           <th>Id</th>
                           <th>Nombres</th>
                           <th>Perfil</th>
+                          <th>Email</th>
                           <th>Login</th>
                           <th>Opciones</th>
                       </tr>
@@ -88,7 +89,8 @@
                       <tr>
                           <td>{{$usuario->id_usuario}}</td>
                           <td>{{$usuario->nombres_u}} {{$usuario->apellidos_u}}</td>
-                          <td>{{$usuario->login}}</td>
+                          <td>{{$usuario->descripcion_perfil}}</td>
+                          <td>{{$usuario->correo_e}}</td>
                           <td>{{$usuario->login}}</td>
                           <td>
                             {!!Html::decode(link_to_route('usuarios.edit', '<span>Editar</span> <i class="glyph-icon icon-pencil"></i>', $parameters = $usuario->id_usuario, $attributes = ['class' => 'btn btn-alt btn-sm btn-hover btn-success'], array())) !!}

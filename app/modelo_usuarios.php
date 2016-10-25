@@ -3,6 +3,7 @@
 namespace directorio_medico;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class modelo_usuarios extends Model
 {
@@ -26,12 +27,19 @@ class modelo_usuarios extends Model
     ];
 
 
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['clave', 'remember_token'];
 
 
-          public function setPasswordAttribute($valor){
+          public function setClaveAttribute($valor){
               if(!empty($valor)){
-                  $this->attributes['password'] = \Hash::make($valor);
+                  $this->attributes['clave'] = \Hash::make($valor);
               }
+          }
+
+          public static function usuarios_perfiles(){
+              return DB::table('tbl_usuarios')
+              ->join('tbl_perfiles', 'tbl_perfiles.id_perfil', '=', 'tbl_usuarios.fk_perfil')
+              ->select('tbl_usuarios.*', 'tbl_perfiles.descripcion_perfil')
+              ->get();
           }
 }

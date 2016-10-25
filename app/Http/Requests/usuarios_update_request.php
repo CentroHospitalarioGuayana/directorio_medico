@@ -4,7 +4,7 @@ namespace directorio_medico\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class usuarios_request extends FormRequest
+class usuarios_update_request extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,11 +29,11 @@ class usuarios_request extends FormRequest
           'apellidos_u' => 'required',
           'foto',
           'sexo',
-          'correo_e' => 'required|email|unique:tbl_usuarios',
+          'correo_e' => 'required|email|',
           'tlf_f',
           'direccion',
           'login' => 'required',
-          'clave'=> 'required|min:6',
+          'clave'=> '',
           'fk_perfil' => 'required',
           'estatus'
         ];

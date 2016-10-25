@@ -30,7 +30,7 @@
 <div class="form-group">
     {!!Form::label('sexo', 'Sexo', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::text('sexo', null , ['class'=>'form-control', 'placeholder'=>'Sexo'])!!}
+      {!!Form::select('sexo', ['Masculino' => 'Masculino', 'Femenino' => 'Femenino', 'Otro' => 'Otro'], null, ['class'=>'form-control'])!!}
     </div>
 </div>
 

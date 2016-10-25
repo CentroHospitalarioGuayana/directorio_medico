@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use directorio_medico\Http\Requests;
 use directorio_medico\Http\Controllers\Controller;
 
-use directorio_medico\Http\Resquests\usuarios_request;
+use directorio_medico\Http\Requests\usuarios_request;
+use directorio_medico\Http\Requests\usuarios_update_request;
 use directorio_medico\modelo_usuarios;
 use directorio_medico\modelo_perfiles;
 use Redirect;
@@ -22,7 +23,7 @@ class usuarios_controller extends Controller
      */
     public function index()
     {
-        $usuarios = modelo_usuarios::All();
+        $usuarios = modelo_usuarios::usuarios_perfiles();
         return view('admin.usuarios.usuarios',compact('usuarios'));
     }
 
@@ -48,7 +49,7 @@ class usuarios_controller extends Controller
         modelo_usuarios::create($request->All());
 
         Session::flash('message','El usuario ha sido creado exitosamente');
-        Redirect::to('/usuarios');
+        return Redirect::to('/usuarios');
 
     }
 
@@ -86,14 +87,14 @@ class usuarios_controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(usuarios_request $request, $id_usuario)
+    public function update(usuarios_update_request $request, $id_usuario)
     {
        $usuarios = modelo_usuarios::find($id_usuario);
        $usuarios->fill($request->all());
-       $usaurios->save();
+       $usuarios->save();
 
        Session::flash('message','El usuario ha sido modificado exitosamente');
-       Redirect::to('/usuarios');
+       return Redirect::to('/usuarios');
     }
 
     /**
@@ -107,6 +108,6 @@ class usuarios_controller extends Controller
         modelo_usuarios::destroy($id_usuario);
 
         Session::flash('message','El usuario ha sido eliminado exitosamente');
-        Redirect::to('/usuarios');
+        return Redirect::to('/usuarios');
     }
 }

@@ -7,13 +7,6 @@
 </div>
 
 <div class="form-group">
-    {!!Form::label('ci_usuario', 'Documento de identidad', ['class' => 'col-sm-3 control-label'])!!}
-    <div class="col-sm-6">
-      {!!Form::text('ci_usuario', null , ['class'=>'form-control','placeholder'=>'Documento de identidad'])!!}
-    </div>
-</div>
-
-<div class="form-group">
     {!!Form::label('nombres_u', 'Nombres', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
       {!!Form::text('nombres_u', null , ['class'=>'form-control', 'placeholder'=>'Nombres del usuario'])!!}
@@ -30,7 +23,7 @@
 <div class="form-group">
     {!!Form::label('sexo', 'Sexo', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::text('sexo', null , ['class'=>'form-control', 'placeholder'=>'Sexo'])!!}
+      {!!Form::select('sexo', ['Masculino' => 'Masculino', 'Femenino' => 'Femenino', 'Otro' => 'Otro'], null, ['class'=>'form-control'])!!}
     </div>
 </div>
 
@@ -42,9 +35,9 @@
 </div>
 
 <div class="form-group">
-    {!!Form::label('tlf_f', 'Extension', ['class' => 'col-sm-3 control-label'])!!}
+    {!!Form::label('tlf_f', 'Telefono', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::text('tlf_f', null , ['class'=>'form-control', 'placeholder'=>'Numero de extension'])!!}
+      {!!Form::text('tlf_f', null , ['class'=>'form-control', 'placeholder'=>'Numero de telefono'])!!}
     </div>
 </div>
 
@@ -80,11 +73,25 @@
 <div class="form-group">
     {!!Form::label('clave', 'Clave', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::password('clave', null , ['class'=>'form-control', 'placeholder'=>'Correo electronico'])!!}
+      {!!Form::password('clave', ['class'=>'form-control', 'placeholder'=>'Clave'])!!}
     </div>
 </div>
 
+<div class="form-group">
+    {!!Form::label('fk_perfil', 'Perfil', ['class' => 'col-sm-3 control-label'])!!}
+    <div class="col-sm-6">
+      {!!Form::select('fk_perfil',$perfiles,null, ['class'=>'form-control'])!!}
+    </div>
+</div>
 
+<div class="form-group">
+    {!!Form::label('estatus', 'Estatus', ['class' => 'col-sm-3 control-label'])!!}
+      <div class="col-sm-6">
+
+        {!!Form::checkbox('estatus', null, false, ['class'=>'input-switch', 'data-on-color'=>'primary', 'data-size'=>'medium', 'data-on-text'=>'Activo', 'data-off-text'=>'Inactivo'])!!}
+        <!--<input type="checkbox" data-on-color="primary"  class="input-switch"  data-size="medium" data-on-text="On" data-off-text="Off"> -->
+      </div>
+</div>
 
 <div class="form-group">
 
