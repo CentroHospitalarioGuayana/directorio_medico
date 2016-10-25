@@ -11,7 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use DB;
 
-class modelo_usuarios extends extends Model implements AuthenticatableContract,AuthorizableContract, CanResetPasswordContract
+class modelo_usuarios extends Model implements AuthenticatableContract,AuthorizableContract, CanResetPasswordContract
 {
   use Authenticatable, Authorizable, CanResetPassword;
 
@@ -36,7 +36,6 @@ class modelo_usuarios extends extends Model implements AuthenticatableContract,A
 
 
     protected $hidden = ['clave', 'remember_token'];
-
 
           public function setClaveAttribute($valor){
               if(!empty($valor)){

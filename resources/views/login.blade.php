@@ -9,8 +9,9 @@
         {!!Form::open(['route'=>'login.store', 'method'=> 'POST', 'class'=>'col-md-5 col-sm-5 col-xs-11 center-margin', 'id'=>'login-validation'])!!}
 
           <h3 class="text-center pad25B font-gray font-size-23">Directorio Medico <span class="opacity-80">v1.0</span></h3>
-          
+
             @include('mensajes.msj_validacion')
+            @include('mensajes.msj_error')
 
           <div id="login-form" class="content-box">
               <div class="content-box-wrapper pad20A">

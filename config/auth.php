@@ -41,10 +41,10 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-        ],
+        //'api' => [
+          //  'driver' => 'token',
+            //'provider' => 'users',
+        //],
     ],
 
     /*
@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => directorio_medico\User::class,
+            'model' => directorio_medico\modelo_usuarios::class,
         ],
 
         // 'users' => [

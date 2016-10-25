@@ -43,12 +43,14 @@ class login_controller extends Controller
     public function store(login_request $request)
     {
       //  if(Auth::attempt(['correo_e' => $request['correo_e'], 'clave'=> $request['clave'], 'estatus' => 'Activo'])){
+
+    //  return $request->correo_e.' '.$request->clave ;
         if(Auth::attempt(['correo_e' => $request['correo_e'], 'clave'=> $request['clave']])){
             return Redirect::to('/medicos');
 
           }
           else{
-            Session::flash('message', 'Datos Incorrectos');
+            Session::flash('message-error', 'Datos Incorrectos');
             return Redirect::to('/login');
           }
     }

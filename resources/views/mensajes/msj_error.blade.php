@@ -1,6 +1,14 @@
 @if(Session::has('message-error'))
-  <div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <i class="icon fa fa-ban"> </i> {{Session::get('message-error')}} <!--a href="#" class="alert-link">Alert Link</a-->
-  </div>
+<div class="example-box-wrapper">
+    <div class="alert alert-close alert-danger">
+        <a href="#" title="Close" class="glyph-icon alert-close-btn icon-remove"></a>
+        <div class="bg-red alert-icon"><i class="glyph-icon icon-ban"></i></div>
+        <div class="alert-content">
+            <h4 class="alert-title">Alerta</h4>
+            <p>{{Session::get('message-error')}}</p>
+
+
+      </div>
+    </div>
+</div>
 @endif
