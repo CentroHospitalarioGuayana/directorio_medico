@@ -13,7 +13,7 @@ class login_request extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class login_request extends FormRequest
     public function rules()
     {
         return [
-            //
+                'correo_e' => 'required',
+                'clave'   => 'required'
         ];
     }
 }

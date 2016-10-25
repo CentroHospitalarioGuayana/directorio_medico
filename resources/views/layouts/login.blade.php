@@ -111,7 +111,7 @@
     {!!Html::style('assets/themes/components/border-radius.css')!!}
     {!!Html::style('assets/helpers/responsive-elements.css')!!}
     {!!Html::style('assets/helpers/admin-responsive.css')!!}
-    
+
     {!!Html::script('assets/js-core/jquery-ui-core.js')!!}
     {!!Html::script('assets/js-core/jquery-core.js')!!}
     {!!Html::script('assets/js-core/jquery-ui-widget.js')!!}
@@ -120,7 +120,7 @@
     {!!Html::script('assets/js-core/transition.js')!!}
     {!!Html::script('assets/js-core/modernizr.js')!!}
     {!!Html::script('assets/js-core/jquery-cookie.js')!!}
-    
+
     <script type="text/javascript">
         $(window).load(function() {
             setTimeout(function() {
@@ -141,51 +141,9 @@
         }
     </style>
     <div class="center-vertical bg-black">
-        <div class="center-content">
-            <form action="{!!asset('/especialidades')!!}" id="login-validation" class="col-md-5 col-sm-5 col-xs-11 center-margin" method="pots" >
-                <h3 class="text-center pad25B font-gray font-size-23">Directorio Medico <span class="opacity-80">v1.0</span></h3>
-                <div id="login-form" class="content-box">
-                    <div class="content-box-wrapper pad20A">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email:</label>
-                            <div class="input-group input-group-lg"><span class="input-group-addon addon-inside bg-white font-primary"><i class="glyph-icon icon-envelope-o"></i></span>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Contraseña:</label>
-                            <div class="input-group input-group-lg"><span class="input-group-addon addon-inside bg-white font-primary"><i class="glyph-icon icon-unlock-alt"></i></span>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="checkbox-primary col-md-6" style="height: 20px">
-                                <label>
-                                    <input type="checkbox" id="loginCheckbox1" class="custom-checkbox"> Recordarme</label>
-                            </div>
-                            <div class="text-right col-md-6"><a href="#" class="switch-button" switch-target="#login-forgot" switch-parent="#login-form" title="Recover password">Olvido su contraseña?</a></div>
-                        </div>
-                    </div>
-                    <div class="button-pane">
-                        {!!Form::submit('Entrar', ['class'=>'btn btn-block btn-primary'])!!}
-                    </div>
-                </div>
-                <div id="login-forgot" class="content-box modal-content hide">
-                    <div class="content-box-wrapper pad20A">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email :</label>
-                            <div class="input-group input-group-lg"><span class="input-group-addon addon-inside bg-white font-primary"><i class="glyph-icon icon-envelope-o"></i></span>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-pane text-center">
-                        <button type="submit" class="btn btn-md btn-primary">Recuperar contraseña</button> <a href="#" class="btn btn-md btn-link switch-button" switch-target="#login-form" switch-parent="#login-forgot" title="Cancel">Cancel</a></div>
-                </div>
-            </form>
-        </div>
+        @yield('contenido')
     </div>
-    
+
     {!!Html::script('assets/widgets/dropdown/dropdown.js')!!}
     {!!Html::script('assets/widgets/tooltip/tooltip.js')!!}
     {!!Html::script('assets/widgets/popover/popover.js')!!}

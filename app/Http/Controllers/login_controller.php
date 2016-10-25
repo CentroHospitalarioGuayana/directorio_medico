@@ -5,7 +5,12 @@ namespace directorio_medico\Http\Controllers;
 use Illuminate\Http\Request;
 
 use directorio_medico\Http\Requests;
+use directorio_medico\Http\Requests\login_request;
 use directorio_medico\Http\Controllers\Controller;
+use Redirect;
+use Session;
+use Auth;
+use App\modelo_usuarios;
 
 class login_controller extends Controller
 {
@@ -35,11 +40,24 @@ class login_controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(login_request $request)
     {
-        //
+      //  if(Auth::attempt(['correo_e' => $request['correo_e'], 'clave'=> $request['clave'], 'estatus' => 'Activo'])){
+        if(Auth::attempt(['correo_e' => $request['correo_e'], 'clave'=> $request['clave']])){
+            return Redirect::to('/medicos');
+
+          }
+          else{
+            Session::flash('message', 'Datos Incorrectos');
+            return Redirect::to('/login');
+          }
     }
 
+    public function logout(){
+      Auth::logout();
+      return Redirect::to('/login');
+
+    }
     /**
      * Display the specified resource.
      *
