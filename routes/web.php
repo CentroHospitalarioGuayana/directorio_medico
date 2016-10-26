@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 */
 Route::get('/', 'FrontController@index');
+Route::resource('admin','admin_controller');
 Route::resource('medicos','medicos_controller');
 Route::resource('especialidades','especialidades_controller');
 Route::resource('horarios','horarios_controller');

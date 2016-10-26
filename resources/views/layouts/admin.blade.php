@@ -145,7 +145,7 @@
                 <div class="scroll-sidebar">
                     <ul id="sidebar-menu">
                         <li class="header"><span>Principal</span></li>
-                        <li><a href="{{asset('/dashboard')}}" title="Dashboard"><i class="glyph-icon icon-dashboard"></i> <span>Dashboard</span></a></li>
+                        <li><a href="{{asset('/admin')}}" title="Dashboard"><i class="glyph-icon icon-dashboard"></i> <span>Dashboard</span></a></li>
 
                         <li class="header"><span>Medicos</span></li>
                         <li><a href="{{asset('/medicos')}}" title="Medicos"><i class="glyph-icon icon-user-md"></i> <span>Medicos</span></a>  </li>

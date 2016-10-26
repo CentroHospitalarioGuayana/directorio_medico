@@ -5,14 +5,14 @@ namespace directorio_medico\Http\Controllers;
 use Illuminate\Http\Request;
 
 use directorio_medico\Http\Requests;
-use directorio_medico\Http\Requests\login_request;
 use directorio_medico\Http\Controllers\Controller;
-use Redirect;
-use Session;
-use Auth;
-use App\modelo_usuarios;
+use directorio_medico\modelo_perfiles;
+use directorio_medico\modelo_usuarios;
+use directorio_medico\modelo_medicos;
+use directorio_medico\modelo_horarios;
+use directorio_medico\modelo_especialidades;
 
-class login_controller extends Controller
+class admin_controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,11 @@ class login_controller extends Controller
      */
     public function index()
     {
-        return view('login');
+        $medicos = modelo_medicos::count();
+        $especialidades = modelo_especialidades::count();
+        $usuarios = modelo_usuarios::count();
+
+        return view('admin.index',compact('medicos','especialidades','usuarios'));
     }
 
     /**
@@ -40,24 +44,11 @@ class login_controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(login_request $request)
+    public function store(Request $request)
     {
-      //  if(Auth::attempt(['correo_e' => $request['correo_e'], 'clave'=> $request['clave'], 'estatus' => 'Activo'])){
-        if(Auth::attempt(['correo_e' => $request['correo_e'], 'password'=> $request['password']])){
-          
-            return Redirect::to('/medicos');
-          }
-          else{
-            Session::flash('message-error', 'Datos Incorrectos');
-            return Redirect::to('/login');
-          }
+        //
     }
 
-    public function logout(){
-      Auth::logout();
-      return Redirect::to('/login');
-
-    }
     /**
      * Display the specified resource.
      *
