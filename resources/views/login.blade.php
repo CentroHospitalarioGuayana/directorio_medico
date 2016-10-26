@@ -23,9 +23,9 @@
                       </div>
                   </div>
                   <div class="form-group">
-                      {!!Form::label('clave', 'Clave:',  ['class'=>'exampleInputPassword1'])!!}
+                      {!!Form::label('password', 'Clave:',  ['class'=>'exampleInputPassword1'])!!}
                       <div class="input-group input-group-lg"><span class="input-group-addon addon-inside bg-white font-primary"><i class="glyph-icon icon-unlock-alt"></i></span>
-                          {!!Form::password('clave',['class'=>'form-control', 'id'=>'exampleInputPassword1', 'placeholder'=>'Ingrese su clave'])!!}
+                          {!!Form::password('password',['class'=>'form-control', 'id'=>'exampleInputPassword1', 'placeholder'=>'Ingrese su clave'])!!}
                       </div>
                   </div>
                   <div class="row">

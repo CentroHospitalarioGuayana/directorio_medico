@@ -12,7 +12,7 @@
                      $('.input-switch').bootstrapSwitch();
                  });
              </script>
-             
+
   <div id="page-title">
       <h2> <i class="glyph-icon icon-user"></i> Editar Usuario</h2>
       <p>Directorio Medico.</p>
@@ -23,7 +23,7 @@
                     <div class="panel-body">
                         <h3 class="title-hero">Usuario</h3>
                         <div class="example-box-wrapper">
-                            {!!Form::model($usuarios,['route'=>['usuarios.update',$usuarios->id_usuario],'method'=>'PUT', 'class'=>'form-horizontal bordered-row'])!!}
+                            {!!Form::model($usuarios,['route'=>['usuarios.update',$usuarios->id_usuario],'method'=>'PUT', 'class'=>'form-horizontal bordered-row', 'files' => true])!!}
 
                                 @include('admin.usuarios.formularios.form_usuarios')
 

@@ -105,6 +105,9 @@ class usuarios_controller extends Controller
      */
     public function destroy($id_usuario)
     {
+        $usuarios = modelo_usuarios::find($id_usuario);
+        \Storage::disk('usuarios')->delete($usuarios->foto);
+
         modelo_usuarios::destroy($id_usuario);
 
         Session::flash('message','El usuario ha sido eliminado exitosamente');

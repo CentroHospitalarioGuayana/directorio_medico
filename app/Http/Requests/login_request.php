@@ -25,7 +25,7 @@ class login_request extends FormRequest
     {
         return [
                 'correo_e' => 'required',
-                'clave'   => 'required'
+                'password'   => 'required'
         ];
     }
 }

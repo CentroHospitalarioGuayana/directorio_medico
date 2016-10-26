@@ -29,19 +29,27 @@ class modelo_usuarios extends Model implements AuthenticatableContract,Authoriza
         'tlf_f',
         'direccion',
         'login',
-        'clave',
+        'password',
         'fk_perfil',
         'estatus'
     ];
 
 
-    protected $hidden = ['clave', 'remember_token'];
+    protected $hidden = ['password', 'remember_token'];
 
-          public function setClaveAttribute($valor){
+          public function setPasswordAttribute($valor){
               if(!empty($valor)){
                   $this->attributes['clave'] = \Hash::make($valor);
               }
           }
+
+          public function setfotoAttribute($foto){
+               if(!empty($foto)){
+                   $name = $foto->getClientOriginalName();
+                   $this->attributes['foto'] = $name;
+                   \Storage::disk('usuarios')->put($name, \File::get($foto));
+                 }
+            }
 
           public static function usuarios_perfiles(){
               return DB::table('tbl_usuarios')

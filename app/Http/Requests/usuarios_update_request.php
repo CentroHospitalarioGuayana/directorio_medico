@@ -33,7 +33,7 @@ class usuarios_update_request extends FormRequest
           'tlf_f',
           'direccion',
           'login' => 'required',
-          'clave'=> '',
+          'password'=> '',
           'fk_perfil' => 'required',
           'estatus'
         ];

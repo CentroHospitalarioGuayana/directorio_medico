@@ -168,18 +168,33 @@
                 </div>
             </div>
 
+              @php
+              $perfil = directorio_medico\modelo_perfiles::find(Auth::user()->fk_perfil);
+
+              $foto_usuario = Auth::user()->foto;
+
+              @endphp
+
+              @if(!Auth::user()->foto)
+                @php
+                  $foto_usuario = "user-img-directorio.png";
+                @endphp
+
+              @endif
+
+
             <div id="page-content-wrapper">
                 <div id="page-content">
                     <div id="page-header">
                         <div id="header-nav-left">
                           <a class="header-btn" id="logout-btn"></a>
                             <div class="user-account-btn dropdown">
-                                <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown"><img width="28" src="{{asset('assets/image-resources/gravatar.jpg')}}" alt="Imagen de perfil"> <span>Usuario</span> <i class="glyph-icon icon-angle-down"></i></a>
+                                <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown"><img width="28" src="/img/usuarios/{{$foto_usuario}}" alt="Imagen"> <span>{!!Auth::user()->nombres_u!!}</span> <i class="glyph-icon icon-angle-down"></i></a>
                                 <div class="dropdown-menu float-right">
                                     <div class="box-sm">
                                         <div class="login-box clearfix">
-                                            <div class="user-img"><img src="{{asset('assets/image-resources/gravatar.jpg')}}" alt=""></div>
-                                            <div class="user-info"><span>Usuario <i>Tipo de usuario</i></span> </div>
+                                            <div class="user-img"><img src="/img/usuarios/{{$foto_usuario}}" alt=""></div>
+                                            <div class="user-info"><span>{!!Auth::user()->nombres_u!!} {!!Auth::user()->apellidos_u!!}<i>{{$perfil->descripcion_perfil}}</i></span> </div>
                                         </div>
                                         <div class="divider"></div>
                                         <ul class="reset-ul mrg5B">
@@ -187,7 +202,7 @@
                                             <li><a href="#">Modificar mis datos</a></li>
                                         </ul>
                                         <div class="button-pane button-pane-alt pad5L pad5R text-center">
-                                          <a href="#" class="btn btn-flat display-block font-normal btn-danger"><i class="glyph-icon icon-power-off"></i> Salir</a>
+                                          <a href="/logout" class="btn btn-flat display-block font-normal btn-danger"><i class="glyph-icon icon-power-off"></i> Salir</a>
                                         </div>
                                     </div>
                                 </div>

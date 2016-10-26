@@ -43,9 +43,7 @@ class login_controller extends Controller
     public function store(login_request $request)
     {
       //  if(Auth::attempt(['correo_e' => $request['correo_e'], 'clave'=> $request['clave'], 'estatus' => 'Activo'])){
-
-    //  return $request->correo_e.' '.$request->clave ;
-        if(Auth::attempt(['correo_e' => $request['correo_e'], 'clave'=> $request['clave']])){
+        if(Auth::attempt(['correo_e' => $request['correo_e'], 'password'=> $request['password']])){
             return Redirect::to('/medicos');
 
           }

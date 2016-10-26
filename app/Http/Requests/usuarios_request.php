@@ -33,7 +33,7 @@ class usuarios_request extends FormRequest
           'tlf_f',
           'direccion',
           'login' => 'required',
-          'clave'=> 'required|min:6',
+          'password'=> 'required|min:6',
           'fk_perfil' => 'required',
           'estatus'
         ];
