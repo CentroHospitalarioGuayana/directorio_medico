@@ -1,4 +1,4 @@
-@if($errors->any())
+@if(count($errors) > 0)
 <div class="example-box-wrapper">
     <div class="alert alert-close alert-danger">
         <a href="#" title="Close" class="glyph-icon alert-close-btn icon-remove"></a>
@@ -6,8 +6,8 @@
         <div class="alert-content">
             <h4 class="alert-title">Alerta</h4>
             <ul>
-            @foreach($errors->getMessages() as $this_error)
-                <li>{!!$this_error[0]!!}</li>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
             @endforeach
             </ul>
 

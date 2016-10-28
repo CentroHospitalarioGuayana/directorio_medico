@@ -44,8 +44,8 @@ class login_controller extends Controller
     {
       //  if(Auth::attempt(['correo_e' => $request['correo_e'], 'clave'=> $request['clave'], 'estatus' => 'Activo'])){
         if(Auth::attempt(['correo_e' => $request['correo_e'], 'password'=> $request['password']])){
-          
-            return Redirect::to('/medicos');
+
+            return Redirect::to('/admin');
           }
           else{
             Session::flash('message-error', 'Datos Incorrectos');

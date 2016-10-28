@@ -14,21 +14,10 @@ class FrontController extends Controller
       $especialidades = modelo_especialidades::paginate(12);
     	return view('index',compact('especialidades'));
     }
-    public function cardiologos()
+    public function perfil()
     {
-    	return view('cardiologos');
+    	return view('admin.usuarios.perfil_usuario');
     }
-    public function neurologos()
-    {
-    	return view('neurologos');
-    }
-    public function nefrologos()
-    {
-    	return view('nefrologos');
-    }
-    public function ginecologos()
-    {
-    	return view('ginecologos');
-    }
+
 
 }

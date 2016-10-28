@@ -18,6 +18,10 @@ class especialidad_medico_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+           $this->middleware('auth');
+     }
+
     public function index()
     {
         //
@@ -30,7 +34,7 @@ class especialidad_medico_controller extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -42,7 +46,7 @@ class especialidad_medico_controller extends Controller
     public function store(especialidad_medico_request $request)
     {
         modelo_especialidad_medico::create($request->All());
-        
+
         Session::flash('message','Especialidad Agregada');
         return Redirect::to('/medicos/create/');
     }

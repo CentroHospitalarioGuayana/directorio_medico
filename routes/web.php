@@ -26,9 +26,3 @@ Route::resource('usuarios','usuarios_controller');
 
 Route::resource('login','login_controller');
 Route::resource('logout','login_controller@logout');
-
-Route::get('cardiologos', 'FrontController@cardiologos');
-Route::get('pediatras', 'FrontController@pediatras');
-Route::get('ginecologos', 'FrontController@ginecologos');
-Route::get('neurologos', 'FrontController@neurologos');
-Route::get('nefrologos', 'FrontController@nefrologos');

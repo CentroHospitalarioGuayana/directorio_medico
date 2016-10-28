@@ -189,20 +189,24 @@
                         <div id="header-nav-left">
                           <a class="header-btn" id="logout-btn"></a>
                             <div class="user-account-btn dropdown">
-                                <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown"><img width="28" src="/img/usuarios/{{$foto_usuario}}" alt="Imagen"> <span>{!!Auth::user()->nombres_u!!}</span> <i class="glyph-icon icon-angle-down"></i></a>
+                                <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown"><img width="28" src="{{asset('/img/usuarios')}}/{{$foto_usuario}}" alt="Imagen"> <span>{!!Auth::user()->nombres_u!!}</span> <i class="glyph-icon icon-angle-down"></i></a>
                                 <div class="dropdown-menu float-right">
                                     <div class="box-sm">
                                         <div class="login-box clearfix">
-                                            <div class="user-img"><img src="/img/usuarios/{{$foto_usuario}}" alt=""></div>
+                                            <div class="user-img"><img src="{{asset('/img/usuarios')}}/{{$foto_usuario}}" alt=""></div>
                                             <div class="user-info"><span>{!!Auth::user()->nombres_u!!} {!!Auth::user()->apellidos_u!!}<i>{{$perfil->descripcion_perfil}}</i></span> </div>
                                         </div>
                                         <div class="divider"></div>
                                         <ul class="reset-ul mrg5B">
-                                            <li><a href="#">Ver mi perfil</a></li>
+                                            <li>
+
+                                              {{link_to_route('usuarios.edit', 'Ver perfil', $parameters = Auth::user()->id_usuario )}}
+                                              <a href="#">Ver mi perfil</a>
+                                            </li>
                                             <li><a href="#">Modificar mis datos</a></li>
                                         </ul>
                                         <div class="button-pane button-pane-alt pad5L pad5R text-center">
-                                          <a href="/logout" class="btn btn-flat display-block font-normal btn-danger"><i class="glyph-icon icon-power-off"></i> Salir</a>
+                                          <a href="{{asset('/logout')}}" class="btn btn-flat display-block font-normal btn-danger"><i class="glyph-icon icon-power-off"></i> Salir</a>
                                         </div>
                                     </div>
                                 </div>
