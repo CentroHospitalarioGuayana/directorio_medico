@@ -18,10 +18,7 @@ class perfiles_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function __construct(){
-           $this->middleware('auth');
-     }
-      
+
     public function index()
     {
       $perfiles = modelo_perfiles::All();
