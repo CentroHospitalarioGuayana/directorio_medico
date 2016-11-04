@@ -199,9 +199,7 @@
                                         <div class="divider"></div>
                                         <ul class="reset-ul mrg5B">
                                             <li>
-
-                                              {{link_to_route('usuarios.edit', 'Ver perfil', $parameters = Auth::user()->id_usuario )}}
-                                              <a href="#">Ver mi perfil</a>
+                                              <a href="{{asset('/perfil')}}">Ver mi perfil</a>
                                             </li>
                                             <li><a href="#">Modificar mis datos</a></li>
                                         </ul>

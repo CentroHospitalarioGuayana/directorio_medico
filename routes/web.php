@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function()
   Route::resource('especialidad_medico','especialidad_medico_controller');
   Route::resource('perfiles','perfiles_controller');
   Route::resource('usuarios','usuarios_controller');
+  Route::get('perfil', 'usuarios_controller@perfil_usuario');
 });
 
 

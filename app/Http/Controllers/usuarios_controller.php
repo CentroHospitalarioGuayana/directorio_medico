@@ -114,4 +114,22 @@ class usuarios_controller extends Controller
         Session::flash('message','El usuario ha sido eliminado exitosamente');
         return Redirect::to('/usuarios');
     }
+
+    public function perfil_usuario()
+    {
+        return view('admin.usuarios.perfil_usuario');
+
+    }
+
+    public function perfil_usuario_update(usuarios_update_request $request, $id_usuario){
+
+        $usuarios = modelo_usuarios::find($id_usuario);
+        $usuarios->fill($request->all());
+        $usuarios->save();
+
+        Session::flash('message','Sus datos han sido modificado exitosamente');
+        return Redirect::to('/perfil');
+
+    }
+
 }
