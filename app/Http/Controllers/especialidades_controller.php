@@ -20,6 +20,12 @@ class especialidades_controller extends Controller
      * @return \Illuminate\Http\Response
      */
 
+     public function __construct()
+   {
+       // Filtrar todos los métodos excepto...
+       $this->middleware('auth', ['except' => ['show']]);
+   }
+
     public function index()
     {
         $especialidades = modelo_especialidades::All();

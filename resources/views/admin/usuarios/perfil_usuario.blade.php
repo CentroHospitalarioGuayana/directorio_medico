@@ -57,7 +57,7 @@
 
               <div class="tab-pane pad0A fade active in" id="tab-example-1">
                   <div class="content-box">
-                    {{Form::open(['route'=>'usuarios.perfil_usuario_update', 'method'=> 'POST', 'class'=>'form-horizontal pad15L pad15R bordered-row'])}}
+                    {{Form::open(['route'=>'usuarios.store', 'method'=> 'POST', 'class'=>'form-horizontal pad15L pad15R bordered-row'])}}
                       @include('admin.usuarios.formularios.form_perfil_usuario')
                     {{Form::close()}}
                   </div>
