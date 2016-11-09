@@ -106,8 +106,10 @@
                                               </div>
                                               <div class="modal-body">
                                                     {!!Form::open(['route'=>['usuarios.destroy',$usuario->id_usuario],'method'=>'DELETE'])!!}
-                                                    Desea eliminar el usuario? <BR>
-                                                    <?php echo "<strong>".$usuario->nombres_u.' '.$usuario->apellidos_u."</strong>"; ?>
+                                                    <h5> Desea eliminar el usuario?</h5>
+                                                    @php
+                                                       echo "<strong>".$usuario->nombres_u.' '.$usuario->apellidos_u."</strong>";
+                                                    @endphp
                                               </div>
                                               <div class="modal-footer">
                                                   {!!Form::submit('Si', array('class' => 'btn btn-danger'))!!}

@@ -17,18 +17,21 @@ Route::get('/', function () {
 */
 Route::get('/', 'FrontController@index');
 
-Route::group(['middleware' => 'auth'], function()
-{
-  Route::resource('admin','admin_controller');
-  Route::resource('medicos','medicos_controller');
+  Route::group(['middleware' => 'auth'], function(){
 
-  Route::resource('horarios','horarios_controller');
-  Route::resource('especialidad_medico','especialidad_medico_controller');
-  Route::resource('perfiles','perfiles_controller');
-  Route::resource('usuarios','usuarios_controller');
-  Route::get('perfil', 'usuarios_controller@perfil_usuario');
-});
+    Route::resource('admin','admin_controller');
+    Route::resource('medicos','medicos_controller');
+
+    Route::resource('horarios','horarios_controller');
+    Route::resource('especialidad_medico','especialidad_medico_controller');
+    Route::resource('perfiles','perfiles_controller');
+    Route::resource('usuarios','usuarios_controller');
+    Route::get('perfil', 'usuarios_controller@perfil_usuario');
+
+    Route::post('profile', 'usuarios_controller@perfil_usuario_update');
+    Route::post('password', 'usuarios_controller@password_update');
+  });
   Route::resource('especialidades','especialidades_controller');
 
-Route::resource('login','login_controller');
-Route::resource('logout','login_controller@logout');
+  Route::resource('login','login_controller');
+  Route::resource('logout','login_controller@logout');

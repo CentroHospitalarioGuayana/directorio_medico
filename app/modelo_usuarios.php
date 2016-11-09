@@ -39,7 +39,7 @@ class modelo_usuarios extends Model implements AuthenticatableContract,Authoriza
 
           public function setPasswordAttribute($valor){
               if(!empty($valor)){
-                  $this->attributes['clave'] = \Hash::make($valor);
+                  $this->attributes['password'] = \Hash::make($valor);
               }
           }
 

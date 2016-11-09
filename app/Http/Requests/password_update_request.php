@@ -4,7 +4,7 @@ namespace directorio_medico\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class usuarios_update_request extends FormRequest
+class password_update_request extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,9 @@ class usuarios_update_request extends FormRequest
     public function rules()
     {
         return [
-          'id_usuario',
-          'nombres_u' => 'required',
-          'apellidos_u' => 'required',
-          'foto',
-          'sexo',
-          'correo_e' => 'required|email|',
-          'tlf_f',
-          'direccion',
-          'login' => '',
-          'password'=> '',
-          'fk_perfil' => '',
-          'estatus'
+            'password_actual',
+            'password'=> 'required|confirmed|min:6'
+
         ];
     }
 }

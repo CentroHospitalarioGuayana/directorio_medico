@@ -73,7 +73,7 @@
 <div class="form-group">
     {!!Form::label('clave', 'Clave', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::password('clave', ['class'=>'form-control', 'placeholder'=>'Clave'])!!}
+      {!!Form::password('password', ['class'=>'form-control', 'placeholder'=>'Clave'])!!}
     </div>
 </div>
 

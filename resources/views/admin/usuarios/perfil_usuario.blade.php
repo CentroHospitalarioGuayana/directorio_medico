@@ -48,48 +48,36 @@
 
               </div>
           </div>
+          @include('mensajes.msj_exitoso')
+          @include('mensajes.msj_validacion')
+          @include('mensajes.msj_error')
+
           <div class="example-box-wrapper">
               <ul class="list-group row list-group-icons">
-                  <li class="col-md-3 active"><a href="#tab-example-1" data-toggle="tab" class="list-group-item"><i class="glyph-icon icon-user"></i>Informacion personal</a></li>
-                  <li class="col-md-3"><a href="#tab-example-2" data-toggle="tab" class="list-group-item"><i class="glyph-icon icon-unlock-alt"></i> Configuracion de acceso</a></li>
+                  <li class="col-md-3 active"><a href="#tab-1" data-toggle="tab" class="list-group-item"><i class="glyph-icon icon-user"></i>Informacion personal</a></li>
+                  <li class="col-md-3"><a href="#tab-2" data-toggle="tab" class="list-group-item"><i class="glyph-icon icon-unlock-alt"></i> Configuracion de acceso</a></li>
               </ul>
               <div class="tab-content">
 
-              <div class="tab-pane pad0A fade active in" id="tab-example-1">
+              <div class="tab-pane pad0A fade active in" id="tab-1">
                   <div class="content-box">
-                    {{Form::open(['route'=>'usuarios.store', 'method'=> 'POST', 'class'=>'form-horizontal pad15L pad15R bordered-row'])}}
+
+                    {{Form::open(['url'=>'profile', 'method'=> 'POST', 'class'=>'form-horizontal bordered-row', 'files'=> true])}}
                       @include('admin.usuarios.formularios.form_perfil_usuario')
                     {{Form::close()}}
+
                   </div>
               </div>
 
-              <div class="tab-pane fade" id="tab-example-2">
-                          <div class="content-box mrg15B">
-                              <h3 class="content-box-header clearfix">Change Password</h3>
+              <div class="tab-pane fade" id="tab-2">
+                          <div class="content-box">
+                              <h3 class="content-box-header clearfix">Cambiar clave</h3>
                               <div class="content-box-wrapper pad0T clearfix">
-                                  <form class="form-horizontal pad15L pad15R bordered-row">
-                                      <div class="form-group">
-                                          <label class="col-sm-3 control-label">Old password:</label>
-                                          <div class="col-sm-6">
-                                              <input type="text" class="form-control" id="" placeholder="">
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                          <label class="col-sm-3 control-label">New password:</label>
-                                          <div class="col-sm-6">
-                                              <input type="text" class="form-control" id="" placeholder="">
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                          <label class="col-sm-3 control-label">Repeat password:</label>
-                                          <div class="col-sm-6">
-                                              <input type="text" class="form-control" id="" placeholder="">
-                                          </div>
-                                      </div>
-                                  </form>
-                              </div>
-                              <div class="button-pane mrg20T">
-                                  <button class="btn btn-success">Update Password</button>
+
+                                {{Form::open(['url'=>'password', 'method'=> 'POST', 'class'=>'form-horizontal bordered-row'])}}
+                                  @include('admin.usuarios.formularios.form_cambiar_password')
+                                {{Form::close()}}
+
                               </div>
                           </div>
                       </div>
