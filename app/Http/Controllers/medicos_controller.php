@@ -45,8 +45,9 @@ class medicos_controller extends Controller
      */
     public function store(medicos_request $request)
     {
+        $id_medico = modelo_medicos::max_medico();
         modelo_medicos::create([
-                  'id_medico' => $request[''],
+                  'id_medico' => $id_medico,
                   'ci_medico' => $request['ci_medico'],
                   'nombres_m' => $request['nombres_m'],
                   'apellidos_m' => $request['apellidos_m'],
@@ -63,7 +64,7 @@ class medicos_controller extends Controller
                   ]);
 
                   Session::flash('message','El Medico Se Ha Creado Exitosamente');
-                  return Redirect::to('/medicos');
+                  return Redirect::to('/medicos/'.$id_medico.'/edit');
 
     }
 

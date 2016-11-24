@@ -3,6 +3,7 @@
 namespace directorio_medico;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class modelo_medicos extends Model
 {
@@ -34,5 +35,15 @@ class modelo_medicos extends Model
              $this->attributes['foto'] = $name;
              \Storage::disk('medicos')->put($name, \File::get($foto));
            }
+      }
+
+      public static function max_medico(){
+        $max  = DB::table('tbl_medicos')
+        ->max('id_medico');
+
+        $max += 1;
+        
+        return $max;
+
       }
 }
