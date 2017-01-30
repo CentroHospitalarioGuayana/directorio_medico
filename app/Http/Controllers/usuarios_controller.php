@@ -125,17 +125,30 @@ class usuarios_controller extends Controller
 
     public function perfil_usuario_update(usuarios_update_request $request){
 
-      /*
-        $usuarios = modelo_usuarios::find($request->$id_usuario);
-        $usuarios->fill($request->all());
-        $usuarios->save();
-        */
-        $usuarios = new modelo_usuarios;
-        $usuarios->where('correo_e', '=', Auth::user()->correo_e)
-             ->update(['nombres_u' => $request['nombres_u'], 'apellidos_u' => $request['apellidos_u'], 'foto'=>$request['foto']]);
+      if(!empty($request['foto'])){
 
-        Session::flash('message','Sus datos han sido modificado exitosamente');
-        return Redirect::to('/perfil');
+            $file = $request->file('foto');
+            //obtenemos el nombre del archivo
+            $nombre = $file->getClientOriginalName();
+
+            modelo_usuarios::where('correo_e', '=', Auth::user()->correo_e)
+                 ->update(['nombres_u' => $request['nombres_u'], 'apellidos_u' => $request['apellidos_u'], 'foto'=>$nombre]);
+
+            \Storage::disk('usuarios')->put($nombre, \File::get($file));
+
+            Session::flash('message','Sus datos han sido modificado exitosamente');
+            return Redirect::to('/perfil');
+
+          }
+          else{
+
+                modelo_usuarios::where('correo_e', '=', Auth::user()->correo_e)
+                     ->update(['nombres_u' => $request['nombres_u'], 'apellidos_u' => $request['apellidos_u']]);
+
+                Session::flash('message','Sus datos han sido modificado exitosamente');
+                return Redirect::to('/perfil');
+
+              }
 
     }
 
@@ -147,9 +160,8 @@ class usuarios_controller extends Controller
     public function password_update(password_update_request $request){
 
       if (Hash::check($request->password_actual, Auth::user()->password)){
-                $usuarios = new modelo_usuarios();
 
-                $usuarios->where('correo_e', '=', Auth::user()->correo_e)
+              modelo_usuarios::where('correo_e', '=', Auth::user()->correo_e)
                      ->update(['password' => bcrypt($request->password)]);
 
                      Session::flash('message','Sus datos han sido modificado exitosamente');
