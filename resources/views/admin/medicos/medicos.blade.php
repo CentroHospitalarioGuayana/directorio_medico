@@ -46,7 +46,7 @@ $(document).ready(function() {
             </div>
           </h3>
 
-
+          @include('mensajes.msj_exitoso')
         <div class="example-box-wrapper">
 
             <table id="datatable-tabletools" class="table table-striped table-bordered" cellspacing="0" width="100%">

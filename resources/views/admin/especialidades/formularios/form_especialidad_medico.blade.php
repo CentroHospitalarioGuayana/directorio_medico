@@ -1,11 +1,11 @@
 <div class="form-group">
     {!!Form::label('fk_medico', 'ID medico', ['class' => 'col-sm-3 control-label'])!!}
     <div class="col-sm-6">
-      {!!Form::text('fk_medico', null , ['class'=>'form-control', 'placeholder'=>'ID Medico'])!!}
+      {!!Form::text('id_medico', null , ['class'=>'form-control', 'placeholder'=>'ID Medico'])!!}
     </div>
 </div>
 <div class="form-group">
-    <label class="col-sm-3 control-label">Especialidad</label>      
+    <label class="col-sm-3 control-label">Especialidad</label>
         <div class="col-sm-6">
             {!!Form::select('fk_especialidad',$especialidades, null, ['multiple'=>'multiple', 'data-placeholder'=>'Click aqui para seleccionar las especialdiades', 'class'=>'chosen-select'])!!}
         </div>

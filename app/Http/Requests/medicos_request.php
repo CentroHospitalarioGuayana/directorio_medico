@@ -23,7 +23,7 @@ class medicos_request extends FormRequest
      */
     public function rules()
     {
-        return ['ci_medico' => 'min:6|max:7',
+        return ['ci_medico' => 'min:6|max:8',
                 'nombres_m'=> 'required',
                 'apellidos_m' =>'required',
                 'fecha_nac',
