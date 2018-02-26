@@ -63,6 +63,7 @@
 
 </div>
 @include('mensajes.msj_validacion')
+@include('mensajes.msj_exitoso')
 
 <div class="panel">
     <div class="panel-body">
