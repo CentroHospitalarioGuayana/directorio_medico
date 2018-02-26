@@ -80,7 +80,7 @@
                 <div class="tab-pane fade active in" id="tab-1">
                     {!!Form::open(['route'=>'medicos.store','method'=>'POST', 'files'=> true, 'class'=>'form-horizontal bordered-row'])!!}
 
-                    @include('admin.medicos.formularios.form_medicos')
+                    @include('admin.medicos.formularios.form_medicos_create')
 
                     {!!Form::close()!!}
                 </div>

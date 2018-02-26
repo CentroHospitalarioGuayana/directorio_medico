@@ -79,7 +79,7 @@
                 <div class="tab-pane fade active in" id="tab-1">
                     {!!Form::model($medicos,['route'=>['medicos.update',$medicos->id_medico],'method'=>'PUT' ,'files'=> true, 'class'=>'form-horizontal bordered-row'])!!}
 
-                    @include('admin.medicos.formularios.form_medicos')
+                    @include('admin.medicos.formularios.form_medicos_update')
 
                     {!!Form::close()!!}
                 </div>

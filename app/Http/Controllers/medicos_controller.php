@@ -11,6 +11,7 @@ use directorio_medico\modelo_especialidades;
 use directorio_medico\Http\Requests\medicos_request;
 use Session;
 use Redirect;
+use DB;
 
 class medicos_controller extends Controller
 {
@@ -45,7 +46,9 @@ class medicos_controller extends Controller
      */
     public function store(medicos_request $request)
     {
+        //return  $request->all();
         $id_medico = modelo_medicos::max_medico();
+
         modelo_medicos::create([
                   'id_medico' => $id_medico,
                   'ci_medico' => $request['ci_medico'],
@@ -62,6 +65,14 @@ class medicos_controller extends Controller
                   'pacientes_particular' => $request['pacientes_particular'],
                   'pacientes_seguro' => $request['pacientes_seguro']
                   ]);
+
+                    for ($i=0;$i<count($request['fk_especialidad']);$i++){
+
+                        DB::table('tbl_especialidad_medico')->insert([
+                            ['fk_medico' => $id_medico, 'fk_especialidad' => $request['fk_especialidad'][$i]],
+                        ]);
+
+                    }
 
                   Session::flash('message','El Medico Se Ha Creado Exitosamente');
                   return Redirect::to('/medicos/'.$id_medico.'/edit');
@@ -89,7 +100,13 @@ class medicos_controller extends Controller
     {
         $medicos = modelo_medicos::find($id_medico);
         $especialidades = modelo_especialidades::pluck('descripcion_especialidad','id_especialidad');
-        return view('admin.medicos.edit',['medicos'=>$medicos],compact('especialidades'));
+
+        $fk_especialidad[] =   DB::table('tbl_especialidad_medico')
+                                        ->select('fk_especialidad')
+                                        ->where('fk_medico', '=', $id_medico)
+                                        ->get();
+
+        return view('admin.medicos.edit',['medicos'=>$medicos],compact('fk_especialidad','especialidades'));
     }
 
     /**
