@@ -143,3 +143,4 @@ class medicos_controller extends Controller
         return Redirect::to('/medicos');
     }
 }
+

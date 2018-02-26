@@ -3,7 +3,7 @@
 namespace directorio_medico\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use directorio_medico\modelo_medicos;
 use directorio_medico\Http\Requests;
 
 class DirectorioController extends Controller
@@ -15,7 +15,8 @@ class DirectorioController extends Controller
      */
     public function index()
     {
-        //
+        $lista_medicos = modelo_medicos::lista();
+        return view('lista',compact('lista_medicos'));
     }
 
     /**

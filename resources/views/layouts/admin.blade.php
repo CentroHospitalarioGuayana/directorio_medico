@@ -212,6 +212,8 @@
                         </div>
                         <div id="header-nav-right">
                             <a href="#" class="hdr-btn" id="fullscreen-btn" title="Fullscreen"><i class="glyph-icon icon-arrows-alt"></i></a>
+                            <a href="{{asset('/')}}" class="hdr-btn" id="" title="Fullscreen"><i class="glyph-icon icon-eye"></i></a>
+                            <a href="{{asset('/')}}" class="hdr-btn" id="" title="Fullscreen"><i class="glyph-icon icon-list"></i></a>
                         </div>
                     </div>
 

@@ -20,6 +20,22 @@
     {!!Html::style('assets/icons/linecons/linecons.css')!!}
     {!!Html::style('assets/icons/spinnericon/spinnericon.css')!!}
     {!!Html::style('css/round-about.css')!!}
+    {!!Html::style('assets/widgets/datatable/datatable.css')!!}
+
+    {!!Html::style('assets/themes/admin/layout.css')!!}
+    {!!Html::style('assets/themes/admin/color-schemes/default.css')!!}
+    {!!Html::style('assets/themes/components/default.css')!!}
+    {!!Html::style('assets/themes/components/border-radius.css')!!}
+
+    {!!Html::script('assets/js-core/jquery-core.js')!!}
+    {!!Html::script('assets/js-core/jquery-ui-core.js')!!}
+    {!!Html::script('assets/js-core/jquery-ui-widget.js')!!}
+    {!!Html::script('assets/js-core/jquery-ui-mouse.js')!!}
+    {!!Html::script('assets/js-core/jquery-ui-position.js')!!}
+    {!!Html::script('assets/js-core/transition.js')!!}
+    {!!Html::script('assets/js-core/modernizr.js')!!}
+    {!!Html::script('assets/js-core/jquery-cookie.js')!!}
+    {!!Html::script('assets/widgets/modal/modal.js')!!}
 
 
 
@@ -93,6 +109,11 @@
 
     <!-- Bootstrap Core JavaScript -->
     {!!Html::script('js/bootstrap.min.js')!!}
+    {!!Html::script('assets/widgets/datatable/datatable.js')!!}
+    {!!Html::script('assets/widgets/datatable/datatable-bootstrap.js')!!}
+    {!!Html::script('assets/widgets/datatable/datatable-tabletools.js')!!}
+    {!!Html::script('assets/themes/admin/layout.js')!!}
+
 </body>
 
 </html>

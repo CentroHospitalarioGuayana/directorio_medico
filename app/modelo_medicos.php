@@ -46,4 +46,13 @@ class modelo_medicos extends Model
         return $max;
 
       }
+
+    public static function lista(){
+        $lista_medicos = DB::select('select a.foto, a.nombres_m, a.apellidos_m , a.consultorio, a.tlf_f, a.tlf_m, c.descripcion_especialidad
+                            from tbl_medicos a
+                            Inner Join tbl_especialidad_medico b ON b.fk_medico = a.id_medico
+                            Inner Join tbl_especialidades c ON c.id_especialidad = b.fk_especialidad');
+
+        return $lista_medicos;
+    }
 }

@@ -32,6 +32,7 @@ Route::get('/', 'FrontController@index');
     Route::post('password', 'usuarios_controller@password_update');
   });
   Route::resource('especialidades','especialidades_controller');
+  Route::resource('directorio','DirectorioController');
 
   Route::resource('login','login_controller');
   Route::resource('logout','login_controller@logout');
