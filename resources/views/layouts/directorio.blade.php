@@ -59,17 +59,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Acerca de</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">elemento 1</a></li>
-                            <li><a href="#">elemento 2</a></li>
-                            <li><a href="#">elemento 3</a></li>
-                            <li><a href="#">elemento 4</a></li>
-                        </ul>
+                    <li>
+                        <a href="{{asset('/directorio')}}">Lista </a>
+                    </li>
+
                     </li>
                     <li>
-                        <a href="#">Servicios</a>
+                        <a href="{{asset('/login')}}">Login</a>
                     </li>
                     <li>
                         <a href="#">Contactos</a>
